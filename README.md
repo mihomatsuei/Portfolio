@@ -1,6 +1,4 @@
-# Portfolio
-
-# <アプリ名>
+## アプリ名
 　beginner's place to talk びーとーく
 
 ## サイト概要
