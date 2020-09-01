@@ -1,2 +1,3 @@
 class DoOurBestsController < ApplicationController
+
 end

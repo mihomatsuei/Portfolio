@@ -1,0 +1,19 @@
+<header class="container-fluid">
+  <nav class="navbar navbar-expand-sm bg-light">
+    <!-- 各種リンク。ログイン時、非ログイン時で表示切替。 -->
+       <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+          <li class="nav-item"><%= link_to 'びーとーくとは？', home_about_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'マイページ', member_path(current_member.id), class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to '投稿一覧', items_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'ユーザー一覧', cart_items_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'nav-link' %></li>
+        <!-- 非ログイン -->
+        <% else %>
+          <li class="nav-item"><%= link_to 'びーとーくとは？', home_about_path, class: 'nav-link' %></li>
+          <li class="nav-item" ><%= link_to '新規登録', new_user_registration_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %></li>
+        <% end %>
+      </ul>
+  </nav>
+</header>
