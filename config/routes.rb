@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'posts/edit'
+  get 'posts/show'
+  get 'users/edit'
+  get 'users/show'
   devise_for :users
   # rootパス
   root 'homes#top'
