@@ -64,3 +64,18 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'dotenv-rails'
+gem 'devise'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'pry-rails'
+gem 'pry-stack_explorer'
+gem 'pry-byebug'
+gem 'enum_help'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'ransack'
