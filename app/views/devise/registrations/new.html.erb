@@ -12,6 +12,11 @@
  </div>
 
  <div class="field">
+   <p>メールアドレス</p>
+   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control offset-6 col-6" %>
+ </div>
+
+ <div class="field">
   <p>これから始めようとしている、または初めて間もないことは何ですか？ (例)プログラミング</p>
   <%= f.text_field :beginner_thing, autofocus: true, autocomplete: "beginner_thing", class: "form-control offset-6 col-6" %>
   <br>

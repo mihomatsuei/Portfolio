@@ -1,2 +1,60 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<h2>マイページ</h2>
+			<table class="table">
+	<tr><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "default1.png") %></tr>
+
+	<tr>
+		<th>name</th>
+		<th><%= @user.name %></th>
+	</tr>
+
+	<tr>
+		<th>introduction</th>
+		<th><%= @user.introduction %></th>
+	</tr>
+	<!-- フォロー機能 -->
+	<% @user ||= current_user %>
+	<tr>
+		<th>follows</th>
+		<th> <%= link_to @user.follower.count,following_path(@user), class: "user_#{@user.id}" %></th>
+	</tr>
+	<tr>
+		<th>followers</th>
+		<th> <%= link_to @user.followed.count,followed_path(@user), class: "user_#{@user.id}" %></th>
+	</tr>
+	</table>
+	<!-- フォローボタン-->
+			<!--  @user = User.find(params[:id]) -->
+			<% @user ||= current_user %>
+			<% if @user != current_user %>
+			<% if current_user.following?(@user) %>
+			<%= link_to "フォロー外す", unfollow_path(@user.id), method: :POST, class: "btn btn-primary" %>
+			<% else %>
+			<%= link_to "フォローする", follow_path(@user.id), method: :POST, class: "btn btn-success" %>
+			<% end %>
+			<% end %>
+	<!-- フォローボタン-->
+<div class="row">
+	<%= link_to '', edit_user_path(user), class: "col-xs-9 btn btn-default glyphicon glyphicon-wrench edit_user_#{user.id}" %>
+</div>
+
+			<div class="col-xs-9">
+				<p>あなたはプログラミング初心者さんです！</p><br>
+				<p>プログラミング歴：１ヶ月 レベル：簡単なアプリを作成できる程度</p><br>
+				<p>あなたは英会話の有識者さんです！</p><br>
+				<p>英会話歴：２年〜 レベル：アメリカに１年留学行ってました。日常会話を話せる程度</p><br>
+
+				<p>自己紹介</p><br>
+				<p>はじめまして！今年の６月からプログラミングを勉強しはじめました。<br>
+                HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。<br>
+                プログラミング初心者の方と励まし合いたいと思って登録しました。<br>
+                よろしくお願いいたします！<br>
+                大学中にアメリカのボストンに１年留学に行っていたので、日常会話程度の
+                英会話ならできます。現在オンライン英会話を毎日行ってます。<br>
+                英語の質問気軽にください〜！</p>
+
+		</div>
+	</div>
+</div>
