@@ -25,7 +25,6 @@ class UsersController < ApplicationController
     end
   end
 
-# endを追加
   def index
     @users = User.all
     @user = current_user
@@ -57,5 +56,4 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user.id)
     end
   end
-end
 end

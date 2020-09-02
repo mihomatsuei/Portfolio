@@ -1,29 +1,74 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="index-container" style="width:40%; margin: 50px auto;">
+  <h2>会員登録/h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <table class="table table-bordered">
+      <tr>
+        <th>お名前(ニックネーム)</th>
+        <td><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control offset-6 col-6" %></td>
+      </tr>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <tr>
+        <th>これから始めようとしている、または初めて間もないことは何ですか？　(例)プログラミング</th>
+        <td><%= f.text_field :beginner_thing, autofocus: true, autocomplete: "beginner_thing", class: "form-control offset-6 col-6" %></td>
+        <tr>
+          <br>
+          <tr>
+            <th>はじめてどのくらいですか？</th>
+            <td><%= f.text_field :beginner_period, autofocus: true, autocomplete: "beginner_period", class: "form-control offset-6 col-6" %></td>
+          </tr>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+          <tr>
+            <th>どのくらいのレベルですか？　(例)簡単なアプリを一人で作れる程度</th>
+            <td><%= f.text_field :beginner_period, autofocus: true, autocomplete: "beginner_period", class: "form-control offset-6 col-6" %></td>
+          </tr>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+          <tr>
+            <th>何か得意なこと、人にアドバイスできることはありますか？　(例)英会話</th>
+            <td><%= f.text_field :expert_thing, autofocus: true, autocomplete: "expert_thing", class: "form-control offset-6 col-6" %></td>
+          </tr>
 
-<%= render "devise/shared/links" %>
+          <tr>
+            <th>はじめてどのくらいですか？</th>
+            <td><%= f.text_field :expert_period, autofocus: true, autocomplete: "expert_period", class: "form-control offset-6 col-6" %></td>
+          </tr>
+
+          <tr>
+            <th>どのくらいのレベルですか？　（例）アメリカに１年留学行ってました。日常会話を話せる程度</th>
+            <td><%= f.text_field :expert_level, autofocus: true, autocomplete: "expert_level", class: "form-control offset-6 col-6" %></td>
+          </tr>
+          <tr>
+            <th>自己紹介</th>
+            <td><%= f.text_field :introduction, autofocus: true, autocomplete: "introduction", class: "form-control offset-6 col-6" %></td>
+          </tr>
+
+          　　<tr>
+            <th>パスワード(6文字以上)</th>
+            <td><%= f.password_field :password, autocomplete: "new-password", class: "form-control offset-6 col-6" %></td>
+          </tr>
+
+          <tr>
+            <th>パスワード確認用</th>
+            <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control offset-6 col-6" %></td>
+          </tr>
+        </table>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <div class="row">
+          <%= f.submit "新規登録", class: "btn btn-primary btn-block mt-5" %>
+        </div>
+        <% end %>
+
+        <br>
+        <div class="space">
+          <h4>すでに登録済みの方</h4>
+          <h5><%= link_to 'こちら', new_member_session_path  %>からログインしてください</h5>
+        </div>
+        <%= render "devise/shared/links" %>
+   </div>
