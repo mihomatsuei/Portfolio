@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
   private
   def user_params # userモデルのカラムのみを許可
-    params.require(:user).permit(:name, :introduction, :profile_image, :beginner_thing, :beginner_period, :beginner_level, :expert_thing, :expert_period, :expert_level)
+    params.require(:user).permit(:name,:email, :introduction, :profile_image, :beginner_thing, :beginner_period, :beginner_level, :expert_thing, :expert_period, :expert_level)
   end
 
   def ensure_correct_user
