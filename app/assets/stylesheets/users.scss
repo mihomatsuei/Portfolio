@@ -1,3 +1,33 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+}
+
+.box img {
+  border-radius: 20px;
+}
+
+.selection-group input[type="radio"] {
+  display: none;
+}
+
+/* 画像部分に余白を持たせる */
+label img {
+  margin: 2px;
+  padding: 6px;
+}
+
+/* 選択されたラジオボタンの画像の背景をオレンジ色に変える */
+.selection-group input[type="radio"]:checked + label img {
+  background: orange;
+}

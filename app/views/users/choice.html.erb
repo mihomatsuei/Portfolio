@@ -1,16 +1,63 @@
-<div class="index-container" style="width:40%; margin: 50px auto;">
+<div class="container" style="margin: 50px auto;">
  <div class="row">
-  <h2>キャラクターを選択</h2>
-  <%= form_for @user,url: {action: "update"} do |f| %>
-  <div class="row">
-    <div class="col-xs-4">
+  <h2 class='text-center'>キャラクターを選択</h2>
+     <div class="col-md-4"></div>
+     <div class="col-md-4">
+      <%= form_for @user,url: {action: "update"} do |f| %>
+      <div class='text-center'>
       <%= attachment_image_tag @user, :profile_image, size: "100x100",  fallback: "default1.png"%><br>
       <%= f.attachment_field :profile_image %>
+    </div>
+      <br>
       <%= f.submit "これにする", class: "btn btn-primary btn-block mt-5" %>
          <% end %>
          <p><%= link_to "戻る", edit_user_path(@user), class: "user_#{@user.id}" %></p>
     </div>
   </div>
+  <div class="selection-group">
+    <div class="row text-center">
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <input id="a" type="radio" name="rate" value="a">
+  <label for="a">
+     <%= image_tag 'default1', size: "100x100" %> </label></div>
+     <div class="col-md-2">
+      <input id="b" type="radio" name="rate" value="b">
+  <label for="b">
+        <%= image_tag 'default2', size: "100x100" %></label></div>
+      <div class="col-md-2">
+        <input id="c" type="radio" name="rate" value="c">
+  <label for="c">
+        <%= image_tag 'default3', size: "100x100" %></label></div>
+        <div class="col-md-2">
+          <input id="d" type="radio" name="rate" value="d">
+  <label for="d">
+     <%= image_tag 'default4', size: "100x100" %></label></div>
+   </div>
+   <br>
 
-</div>
+      <div class="row text-center">
+          <div class="col-md-2"></div>
+       <div class="col-md-2">
+        <input id="e" type="radio" name="rate" value="e">
+  <label for="e">
+        <%= image_tag 'default5', size: "100x100" %></label></div>
+        <div class="col-md-2">
+          <input id="f" type="radio" name="rate" value="f">
+  <label for="f">
+        <%= image_tag 'default6', size: "100x100" %></label></div>
+        <div class="col-md-2">
+           <input id="g" type="radio" name="rate" value="g">
+  <label for="g">
+       <%= image_tag 'default7', size: "100x100" %> </label></div>
+     <div class="col-md-2">
+       <input id="h" type="radio" name="rate" value="h">
+  <label for="h">
+      <%= image_tag 'default8', size: "100x100" %></label></div>
+    </div>
+      </div>
+     </div>
+    </div>
+  </div>
+ </div>
 </div>
