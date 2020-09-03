@@ -1,0 +1,21 @@
+<!-- トピックを新規投稿ボタンを押すとここへ -->
+<div class="index-container" style="width:40%; margin: 50px auto;">
+	<div class="row">
+		<%= form_for(@post) do |f| %>
+		<div class="field row">
+			<p>タイトル</p>
+			<%= f.text_field :title, class: "col-xs-12 post_title" %>
+		</div>
+		<br>
+		<div class="row">
+         <%= f.text_area :body, rows:'10', class: "form-control",placeholder: "投稿したい内容をここに書いてね" %>
+		</div>
+		<br>
+		<div class="actions row">
+			<%= f.submit "投稿する", class: "btn btn-primary col-xs-12" %>
+		</div>
+		<% end %>
+
+	</div>
+</div>
+

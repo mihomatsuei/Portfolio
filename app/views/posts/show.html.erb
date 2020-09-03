@@ -1,2 +1,91 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<!-- 新規投稿がされるとこのページが表示される post detail-->
+<!-- ここにコメント欄といいね機能を追加 コメントするとこのページに反映される-->
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+		</div>
+
+		<div class="col-xs-9">
+			<h2>投稿詳細</h2>
+
+			<table class="table">
+				<tr>
+					<td>
+						<%= link_to user_path(@find_post.user.id) do %>
+						<%= attachment_image_tag(@find_post.user, :profile_image, :fill, 100, 100, fallback: "default1.png") %><br>
+						<%= @find_post.user.name %>
+						<% end %>
+					</td>
+					<!-- 投稿のタイトル -->
+					<!-- ブラウザのurlと同じidのpostのデータが欲しい @find_postはデータを持ったpost-->
+					<td><%= link_to @find_post.title, post_path(@find_post.id) %></td>
+					<!-- 本の内容 -->
+					<td><%= @find_post.body %></td>
+					<!-- いいね機能 -->
+					<td>
+						<!-- ifにかけるのは投稿されたトピック@postだとpost.new（空の投稿)だからいいねが反映されない -->
+							<% if @find_post.do_our_best_by?(current_user) %>
+
+							<%= link_to post_do_our_bests_path(@find_post), method: :delete do %>
+							<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+							<!-- いいねのカウントは投稿された本 @find_post @postではない-->
+							<%= @find_post.do_our_bests.count %>
+							<% end %>
+							<% else %>
+							<%= link_to post_do_our_bests_path(@find_post), method: :post do %>
+							<i class="fa fa-heart-o" aria-hidden="true"></i>
+							<%= @find_post.do_our_bests.count %>
+							<% end %>
+							<% end %>
+						</td>
+					<!-- ポストコメントモデルに入っている中でpost_idが一緒のもののコメント数を表示 -->
+					<td>コメント数:<%= @post_comments.count %>件</td>
+					<!-- もし、本の投稿をしたユーザー(@user = @find_post.user)と現在ログインしているユーザー(current_user)が一致していたらEditとDestroyを表示 -->
+					<% if @user == current_user %>
+					<td><%= link_to "Edit", edit_post_path(@find_post), class: "btn-sm btn-success edit_post_#{@find_post.id}" %></td>
+					<td><%= link_to "Destroy", post_path(@find_post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_post_#{@find_post.id}" %></td>
+					<% end %>
+				</tr>
+			</table>
+
+			<!-- コメント表示欄作成 -->
+			<table class="table">
+				<tbody>
+					<!-- ポストコメントモデルに入っている中でpost_idが一緒のもの全て -->
+					<% @post_comments.each do |post_comment| %>
+					<tr>
+						<td>
+							<%= link_to user_path(@find_post.user.id) do %>
+							<%= attachment_image_tag(@find_post.user, :profile_image, :fill, 100, 100, fallback: "default2.png") %><br>
+							<%= post_comment.user.name %>
+							<% end %>
+						</td>
+						<td>
+							<%= post_comment.comment %>
+						</td>
+						<td>
+							<% if post_comment.user == current_user%>
+							<%= link_to "Destroy", post_comment_path(post_comment), method: :delete, class: "btn btn-danger pull-right" %>
+						</td>
+						<% end %>
+						<% end %>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- コメント欄作成 -->
+			<%= form_for [@post_comment] do |f| %>
+			<div class="row">
+				<div class="col-sm-12">
+					<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+				</div>
+			</div>
+			<%= f.hidden_field :post_id, :value => @find_post.id %>
+			<%= f.submit "送信", class: "pull-right" %>
+			<% end %>
+
+			<!-- コメント欄作成 -->
+
+		</div>
+	</div>
+</div>

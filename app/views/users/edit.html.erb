@@ -47,32 +47,32 @@
         <%= f.text_field :expert_thing, autofocus: true, autocomplete: "expert_thing", class: "form-control offset-6 col-6" %></div>
 
 
-        <div class="field">
+      <div class="field">
           <p>はじめてどのくらいですか？</p>
           <%= f.text_field :expert_period, autofocus: true, autocomplete: "expert_period", class: "form-control offset-6 col-6" %></div>
 
 
-          <div class="field">
+      <div class="field">
             <p>どのくらいのレベルですか？<br>
             （例）アメリカに１年留学行ってました。日常会話を話せる程度</p>
             <%= f.text_field :expert_level, autofocus: true, autocomplete: "expert_level", class: "form-control offset-6 col-6" %></div>
 
-            <div class="field">
               <p>自己紹介</p>
-              <%= f.text_field :introduction, autofocus: true, autocomplete: "introduction", class: "form-control offset-6 col-6" %></div>
+      <div class="field">
+         <%= f.text_area :introduction, rows:'10', autofocus: true, autocomplete: "introduction", class: "form-control",placeholder: "投稿したい内容をここに書いてね" %>
+      </div>
 
-
-              <div class="field">
+      <div class="field">
                 <p>パスワード(6文字以上)</p>
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control offset-6 col-6" %></div>
 
 
-                <div class="field">
+      <div class="field">
                   <p>パスワード確認用</p>
                   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control offset-6 col-6" %></div>
                   <br>
 
-                  <div class="row">
+      <div class="row">
                     <%= f.submit "プロフィール変更", class: "btn btn-primary btn-block mt-5" %>
                   </div>
                   <% end %>

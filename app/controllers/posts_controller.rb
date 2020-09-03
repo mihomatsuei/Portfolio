@@ -6,6 +6,13 @@ class PostsController < ApplicationController
     # @post_comments = PostComment.where(post_id: @post.id)は定義しなくてOK
   end
 
+  def new
+    @posts = Post.all #postモデルからすべてのインスタンス取得
+    @post = Post.new # 新規投稿用の空のインスタンス
+    @user = current_user
+    # @post_comments = PostComment.where(post_id: @post.id)は定義しなくてOK
+  end
+
   def create
     @user = current_user
     @posts = Post.all #postモデルからすべてのインスタンス取得
