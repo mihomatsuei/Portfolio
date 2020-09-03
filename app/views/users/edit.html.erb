@@ -2,10 +2,10 @@
  <div class="row">
   <h2>プロフィール編集</h2>
 
-  <p><%= link_to "戻る", user_path(@user), class: "user_#{@user.id}" %><%= link_to "キャラを変える", user_path(@user), class: "user_#{@user.id}" %></p>
+  <p><%= link_to "戻る", user_path(@user), class: "user_#{@user.id}" %><%= link_to "キャラを変える", user_choice_path(@user), class: "user_#{@user.id}" %></p>
 
+ <!-- 画像選択欄 -->
    <%= form_for @user,url: {action: "update"} do |f| %>
-  <!-- 画像選択欄 -->
   <div class="row">
     <div class="col-xs-4">
       <%= attachment_image_tag @user, :profile_image, size: "100x100",  fallback: "default1.png"%><br>
@@ -13,7 +13,7 @@
          <% end %>
     </div>
   </div>
-      <!-- 画像選択欄 -->
+   <!-- 画像選択欄 -->
 
   <%= form_for(@user) do |f| %>
   <div class="field">

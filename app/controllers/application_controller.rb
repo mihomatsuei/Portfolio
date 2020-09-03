@@ -14,7 +14,10 @@ before_action :authenticate_user!, only: [:show,:edit,:index]
 #deviseのストロングパラメーターにカラム追加するメソッドを定義
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :introduction, :profile_image, :beginner_thing, :beginner_period, :beginner_level, :expert_thing, :expert_period, :expert_level])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:name ])
   end
 
 
 end
+
+

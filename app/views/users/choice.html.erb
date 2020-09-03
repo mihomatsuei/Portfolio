@@ -1,0 +1,16 @@
+<div class="index-container" style="width:40%; margin: 50px auto;">
+ <div class="row">
+  <h2>キャラクターを選択</h2>
+  <%= form_for @user,url: {action: "update"} do |f| %>
+  <div class="row">
+    <div class="col-xs-4">
+      <%= attachment_image_tag @user, :profile_image, size: "100x100",  fallback: "default1.png"%><br>
+      <%= f.attachment_field :profile_image %>
+      <%= f.submit "これにする", class: "btn btn-primary btn-block mt-5" %>
+         <% end %>
+         <p><%= link_to "戻る", edit_user_path(@user), class: "user_#{@user.id}" %></p>
+    </div>
+  </div>
+
+</div>
+</div>
