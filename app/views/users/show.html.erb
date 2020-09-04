@@ -3,7 +3,9 @@
 		<div class="col-xs-3">
 			<h2>マイページ</h2>
 			<table class="table">
-	<tr><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "default1.png") %></tr>
+			 <tr><figure class="box2">
+	<%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "default1.png") %>
+       </figure></tr>
 
 	<tr>
 		<th>お名前</th>
@@ -34,26 +36,21 @@
 	<%= link_to 'プロフォール編集', edit_user_path(@user), class: "col-xs-9 btn btn-default glyphicon glyphicon-wrench edit_user_#{@user.id}" %>
 	<br>
 	<%= link_to '投稿する', new_post_path, class: "col-xs-9 btn btn-default glyphicon glyphicon-wrench edit_user_#{@user.id}" %>
-	
+
 
     </div>
-
-			<div class="col-xs-9">
+	<div class="col-xs-1"></div>
+			<div class="col-xs-8">
+				<br><br><br><br><br>
+				<h5>あなたはプログラミング初心者さんです！<br>
+				プログラミング歴：１ヶ月 レベル：簡単なアプリを作成できる程度</h5><br><br>
+				<h5>あなたは英会話の有識者さんです！<br>
+				英会話歴：２年〜 レベル：アメリカに１年留学行ってました。日常会話を話せる程度</h5>
 				<br>
-				<p>あなたはプログラミング初心者さんです！</p><br>
-				<p>プログラミング歴：１ヶ月 レベル：簡単なアプリを作成できる程度</p><br>
-				<p>あなたは英会話の有識者さんです！</p><br>
-				<p>英会話歴：２年〜 レベル：アメリカに１年留学行ってました。日常会話を話せる程度</p><br>
-
-				<p>自己紹介</p><br>
-				<%= @user.introduction %>
-				<p>はじめまして！今年の６月からプログラミングを勉強しはじめました。<br>
-                HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。<br>
-                プログラミング初心者の方と励まし合いたいと思って登録しました。<br>
-                よろしくお願いいたします！<br>
-                大学中にアメリカのボストンに１年留学に行っていたので、日常会話程度の
-                英会話ならできます。現在オンライン英会話を毎日行ってます。<br>
-                英語の質問気軽にください〜！</p>
+              
+　　　　　　　　　<div class="nomadBox2">
+				<p><%= @user.introduction %></p>
+            </div>
 
 		</div>
 	</div>

@@ -1,7 +1,8 @@
 <div class="index-container" style="width:40%; margin: 50px auto;">
 	<div class="row">
-
-		<h2>ユーザー一覧</h2>
+		<div class="col-md-9">
+		<h2>仲間をみつけよう</h2>
+	</div>
 		<table class="table">
 			<thead>
 				<tr>
@@ -14,7 +15,10 @@
 			<tbody>
 				<% @users.each do |user| %>
 				<tr>
-					<td><%= attachment_image_tag(user, :profile_image, size: "100x100", fallback: "default1.png") %></td>
+					<td>
+                    <figure class="box">
+						<%= attachment_image_tag(user, :profile_image, size: "100x100", fallback: "default1.png") %>
+					</figure></td>
 					<td><%= user.name %></td>
 					<!-- ここにフォローボタンを追加 -->
 					<!-- 左辺が未定義または偽なら代入(左辺をまず評価して、結果が真なら何もせず、偽なら右辺へ代入する) -->
