@@ -1,6 +1,9 @@
 <header class="container-fluid">
-  <nav class="navbar navbar-expand-sm bg-light">
+<div class="row">
+ </div>
+
     <!-- 各種リンク。ログイン時、非ログイン時で表示切替。 -->
+      <nav class="navbar navbar-expand-sm bg-light">
        <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
            <p>こんにちは! <%= current_user.name %>さん</p>

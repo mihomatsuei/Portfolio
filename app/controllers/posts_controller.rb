@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   def index
+    @search = Post.ransack(params[:q])
+    @posts = @search.result
     @posts = Post.all #postモデルからすべてのインスタンス取得
     @post = Post.new # 新規投稿用の空のインスタンス
     @user = current_user
