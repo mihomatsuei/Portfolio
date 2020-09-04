@@ -1,82 +1,95 @@
-<div class="index-container" style="width:40%; margin: 50px auto;">
+<div class="container" style="margin: 50px auto;">
  <div class="row">
-  <h2>プロフィール編集</h2>
+   <div class="col-md-4"></div>
+     <div class="col-md-4">
+       <h2>プロフィール編集</h2>
+     </div>
+    <div class="col-md-4">
+  <div class="button">
+<%= link_to "もどる", user_path(@user), class: "user_#{@user.id}" %></div>
+  <div class="button">
+     <%= link_to "キャラ変更", user_choice_path(@user), class: "user_#{@user.id}" %>
+  </div>
+     </div>
+  </div>
 
-  <p><%= link_to "戻る", user_path(@user), class: "user_#{@user.id}" %><%= link_to "キャラを変える", user_choice_path(@user), class: "user_#{@user.id}" %></p>
-
+ <div class="row">
+   <div class="col-md-12">
+     <div class='text-center'>
  <!-- 画像選択欄 -->
-   <%= form_for @user,url: {action: "update"} do |f| %>
-  <div class="row">
-    <div class="col-xs-4">
-      <%= attachment_image_tag @user, :profile_image, size: "100x100",  fallback: "default1.png"%><br>
-      <%= f.attachment_field :profile_image %>
-         <% end %>
+  <div class="button3">
+       <%= form_for @user,url: {action: "update"} do |f| %>
+         <%= attachment_image_tag @user, :profile_image, size: "100x100",  fallback: "default1.png"%></div>
+          <div class="form-image">
+       <%= f.attachment_field :profile_image %></div>
+      <% end %>
+     </div>
     </div>
   </div>
-   <!-- 画像選択欄 -->
-
-  <%= form_for(@user) do |f| %>
-  <div class="field">
-   <p>お名前（ニックネーム）</p>
-   <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control offset-6 col-6" %>
- </div>
-
- <div class="field">
-   <p>メールアドレス</p>
-   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control offset-6 col-6" %>
- </div>
-
-     <div class="field">
-     <p>これから始めようとしている、または初めて間もないことは何ですか？ (例)プログラミング</p>
-     <%= f.text_field :beginner_thing, autofocus: true, autocomplete: "beginner_thing", class: "form-control offset-6 col-6" %>
-     <br>
-     <div class="field">
-     <p>はじめてどのくらいですか？</p>
-     <%= f.text_field :beginner_period, autofocus: true, autocomplete: "beginner_period", class: "form-control offset-6 col-6" %></div>
-
+</div>
+     <!-- 画像選択欄 -->
+<div class="row">
+   <div class="col-md-3"></div>
+     <div class="col-md-6">
+       <div class='text-center'>
+         <%= form_for(@user) do |f| %>
+         <div class="field">
+       <p>お名前（ニックネーム）</p>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control offset-6 col-6" %></div>
 
     <div class="field">
+       <p>メールアドレス</p>
+         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control offset-6 col-6" %></div>
+
+     <div class="field">
+        <p>これから始めようとしている、または初めて間もないことは何ですか？<br>
+        (例)プログラミング</p>
+            <%= f.text_field :beginner_thing, autofocus: true, autocomplete: "beginner_thing", class: "form-control offset-6 col-6" %>
+     <br>
+     <div class="field">
+      <p>はじめてどのくらいですか？</p>
+         <%= f.text_field :beginner_period, autofocus: true, autocomplete: "beginner_period", class: "form-control offset-6 col-6" %></div>
+     <div class="field">
       <p>どのくらいのレベルですか？
       (例)簡単なアプリを一人で作れる程度</p>
-      <%= f.text_field :beginner_period, autofocus: true, autocomplete: "beginner_period", class: "form-control offset-6 col-6" %></div>
+         <%= f.text_field :beginner_period, autofocus: true, autocomplete: "beginner_period", class: "form-control offset-6 col-6" %></div>
 
 
      <div class="field">
-        <p>何か得意なこと、人にアドバイスできることはありますか？<br>
-        (例)英会話</p>
+        <p>何か得意なこと、人にアドバイスできることはありますか？<br>(例)英会話</p>
         <%= f.text_field :expert_thing, autofocus: true, autocomplete: "expert_thing", class: "form-control offset-6 col-6" %></div>
 
 
-      <div class="field">
-          <p>はじめてどのくらいですか？</p>
-          <%= f.text_field :expert_period, autofocus: true, autocomplete: "expert_period", class: "form-control offset-6 col-6" %></div>
+     <div class="field">
+        <p>はじめてどのくらいですか？</p>
+            <%= f.text_field :expert_period, autofocus: true, autocomplete: "expert_period", class: "form-control offset-6 col-6" %></div>
 
 
       <div class="field">
-            <p>どのくらいのレベルですか？<br>
+          <p>どのくらいのレベルですか？<br>
             （例）アメリカに１年留学行ってました。日常会話を話せる程度</p>
             <%= f.text_field :expert_level, autofocus: true, autocomplete: "expert_level", class: "form-control offset-6 col-6" %></div>
 
-              <p>自己紹介</p>
+          <p>自己紹介</p>
       <div class="field">
          <%= f.text_area :introduction, rows:'10', autofocus: true, autocomplete: "introduction", class: "form-control",placeholder: "投稿したい内容をここに書いてね" %>
       </div>
 
       <div class="field">
-                <p>パスワード(6文字以上)</p>
-                <%= f.password_field :password, autocomplete: "new-password", class: "form-control offset-6 col-6" %></div>
+          <p>パスワード(6文字以上)</p>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control offset-6 col-6" %></div>
 
 
       <div class="field">
-                  <p>パスワード確認用</p>
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control offset-6 col-6" %></div>
-                  <br>
-
-      <div class="row">
-                    <%= f.submit "プロフィール変更", class: "btn btn-primary btn-block mt-5" %>
-                  </div>
-                  <% end %>
-
-                  <br>
-                </div>
-              </div>
+        <p>パスワード確認用</p>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control offset-6 col-6" %></div>
+    <br>
+    <div class="row">
+        <%= f.submit "プロフィール変更", class: "btn btn-primary btn-block mt-5" %></div>
+      <% end %>
+    </div>
+  </div>
+       <div class="col-md-3"></div>
+     </div>
+   </div>
+</div>
