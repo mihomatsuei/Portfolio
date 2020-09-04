@@ -1,7 +1,18 @@
 <div class="container" style="margin: 50px auto;">
  <div class="row">
+   <div class="col-md-4"></div>
+   <div class="col-md-4">
+    <h3 class='text-center'>キャラクターを選択</h3>
+   </div>
+    <div class="col-md-4">
+     <div class='text-right'>
+      <div class="button">
+        <%= link_to "もどる", edit_user_path(@user), class: "user_#{@user.id}" %></div>
+     </div>
+   </div>
+ </div>
 
-  <h3 class='text-center'>キャラクターを選択</h3>
+    <div class="row">
      <div class="col-md-4"></div>
      <div class="col-md-4">
       <%= form_for @user,url: {action: "update"} do |f| %>
@@ -13,9 +24,9 @@
       <br>
       <%= f.submit "これにする", class: "btn btn-success btn-block mt-5" %>
          <% end %>
-         <p><%= link_to "戻る", edit_user_path(@user), class: "user_#{@user.id}" %></p>
     </div>
   </div>
+  <br>
   <div class="selection-group">
     <div class="row text-center">
       <div class="col-md-2"></div>

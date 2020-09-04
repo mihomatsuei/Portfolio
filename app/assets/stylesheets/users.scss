@@ -33,7 +33,7 @@ label img {
 
 /* 選択されたラジオボタンの画像の背景をオレンジ色に変える */
 .selection-group input[type="radio"]:checked + label img {
-  background: #f67690;
+  background: #f7c6bd;
 }
 
 .nomadBox2 {
@@ -96,4 +96,43 @@ h5{
   color: #272727;
   border-bottom: double 6px #272727;
   padding-bottom: .5em;
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  color: #668ad8;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  border: double 4px #668ad8;
+  text-align: center;
+  overflow: hidden;
+  transition: .6s;
+  text-decoration: none;
+}
+
+.button:hover {
+  -webkit-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+  text-decoration: none;
+}
+
+.button2 {
+  display: inline-block;
+  text-decoration: none;
+  background: #87befd;
+  color: #FFF;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+
+.button2:hover {
+  background: #668ad8;
 }
