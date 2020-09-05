@@ -11,7 +11,7 @@ def create
 
    def destroy
    PostComment.find(params[:id]).destroy
-   	# 削除後そのままpost detail(post#showのまま)
+   	# 削除後そのまま(post#showのまま)
     redirect_back(fallback_location: posts_path)
    end
 
