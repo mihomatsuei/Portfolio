@@ -16,15 +16,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @posts = Post.all #postモデルからすべてのインスタンス取得
     @post = Post.new(post_params) # フォームから送られてきたデータ(body)をストロングパラメータを経由して@postに代入
     @post.user_id = current_user.id# user_idの情報はフォームからはきていないので、deviseのメソッドを使って「ログインしている自分のid」を代入
-    if @post.save
-      redirect_to post_path(@post.id), notice: "You have created post successfully."
-    else
-      render 'index'
-    end
+    @post.save
+    @user = current_user
+    @posts = Post.all #postモデルからすべてのインスタンス取得
+    
   end
 
   def show

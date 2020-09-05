@@ -1,4 +1,5 @@
 	<br><br>
+	<!-- 検索ボタン -->
 <div class="container">
 	<div class="row">
        <div class="col-xs-3">
@@ -8,10 +9,12 @@
 		<%= f.search_field :title_cont , class: "form-control" ,placeholder: "探してみてね"%>
 		<%= f.submit '検索' , class: 'btn btn-default'%>
 		<% end %>
-	</span>
+	　</span>
 	</div>
    </div>
 </div>
+	<!-- 検索ボタン -->
+
   <div class="row">
   	 <div class="col-md-4"></div>
   	  <div class="col-md-4">
@@ -19,56 +22,48 @@
 		 <div class="col-md-4"></div>
 	  </div>
   </div>
+
+   <!-- 投稿一覧-->
   <div class="row">
-     <div class="col-md-2"></div>
-	   <div class="col-md-8">
-		   <table class="table table-hover table-inverse">
-				<thead>
-					<tr>
-						<th></th>
-						<th>トピック</th>
-						<th></th>
-						<th colspan="3"></th>
-					</tr>
-				</thead>
+     <div class="col-md-2 sidebar">
+   <!-- 新規投稿ボタン -->
+      <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#exampleModal">
+        投稿
+      </button>
+    </div>
 
-				<tbody>
-					<% @posts.each do |post| %>
-					<tr>
-						<td>
-							<%= link_to user_path(post.user) do %>
-							  <figure class="box">
-							<%= attachment_image_tag(post.user, :profile_image, size: "100x100", fallback: "default1.png") %></figure>
-							<% end %>
-						</td>
-						<td><%= link_to post.title, post_path(post), class: "post_#{post.id}" %></td>
-
-						<!-- 頑張ろうね ありがとう機能 -->
-						<td>
-							<!-- ifにかけるのはeach文のpost @postだとpost.new（空の本)だから頑張ろうね ありがとうが反映されない -->
-							<!-- post.do_our_bests(頑張ろうねされた投稿)の中に、引数で送られたuserのidがあるかどうか？ -->
-							<% if post.do_our_best_by?(current_user) %>
-							<%= link_to post_do_our_bests_path(post), method: :delete do %>
-							<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-							<%= post.do_our_bests.count %>
-							<% end %>
-							<% else %>
-							<%= link_to post_do_our_bests_path(post), method: :post do %>
-							<i class="fa fa-heart-o" aria-hidden="true"></i>
-							<%= post.do_our_bests.count %>
-							<% end %>
-							<% end %>
-						</td>
-
-<!-- post#showの@post_comments.countと比較 -->
-<!-- それぞれの投稿に対してのコメント数を表示 -->
-<!--post(eachで回しているpost).post_comments(モデル名).count-->
-						<td>コメント数:<%= post.post_comments.count %>件</td>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
-         <div class="col-md-2"></div>
+    <!-- 新規投稿表示 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">新規投稿</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for @post, remote: true do |f| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.label :title, "タイトル" %>
+            <%= f.text_field :title, class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :body, "内容" %>
+            <%= f.text_area :body, rows:'10', class:"form-control" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+          <%= f.submit "投稿する", class:"btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+	   <div class="col-md-10 posts">
+	   	<%= render 'posts', posts: @posts %>
+	   	</div>
        </div>
 	</div>
 </div>
