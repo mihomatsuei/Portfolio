@@ -1,15 +1,16 @@
 <div class="container">
-	<div class="row">
-		<div class="col-xs-3">
-			<h2>マイページ</h2>
-			<table class="table">
-			 <tr><figure class="box2">
-	<%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "default1.png") %>
-       </figure></tr>
-
-	<tr>
+  <div class="row">
+	<div class="col-xs-3">
+	  <h2>マイページ</h2>
+		 <table class="table">
+		  <tr>
+		  	<figure class="box2">
+	          <%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "default1.png") %>
+            </figure>
+          </tr>
+         <tr>
 		<th>お名前</th>
-		<th><%= @user.name %></th>
+	   <th><%= @user.name %></th>
 	</tr>
 	<!-- フォロー機能 -->
 	<% @user ||= current_user %>
@@ -21,10 +22,10 @@
 		<th>フォロワー</th>
 		<th> <%= link_to @user.followed.count,followed_path(@user), class: "user_#{@user.id}" %></th>
 	</tr>
-	</table>
+	       </table>
 	<!-- フォローボタン-->
 			<!--  @user = User.find(params[:id]) -->
-			<% @user ||= current_user %>
+		   <% @user ||= current_user %>
 			<% if @user != current_user %>
 			<% if current_user.following?(@user) %>
 			<%= link_to "フォロー外す", unfollow_path(@user.id), method: :POST, class: "btn btn-primary" %>
@@ -33,25 +34,25 @@
 			<% end %>
 			<% end %>
 	<!-- フォローボタン-->
-	<%= link_to 'プロフォール編集', edit_user_path(@user), class: "col-xs-9 btn btn-default glyphicon glyphicon-wrench edit_user_#{@user.id}" %>
-	<br>
-	<%= link_to '投稿する', new_post_path, class: "col-xs-9 btn btn-default glyphicon glyphicon-wrench edit_user_#{@user.id}" %>
-
-
+	 <div class='btn-sticky'>
+	<%= link_to 'プロフィール編集', edit_user_path(@user) %>
+	 </div>
+	 <div class='btn-sticky2'>
+	<%= link_to '投稿する', new_post_path %>
     </div>
-	<div class="col-xs-1"></div>
+　</div>
+	 <div class="col-xs-1"></div>
 			<div class="col-xs-8">
 				<br><br><br><br><br>
-				<h5>あなたはプログラミング初心者さんです！<br>
-				プログラミング歴：１ヶ月 レベル：簡単なアプリを作成できる程度</h5><br><br>
-				<h5>あなたは英会話の有識者さんです！<br>
-				英会話歴：２年〜 レベル：アメリカに１年留学行ってました。日常会話を話せる程度</h5>
+				<h5>あなたは<%= @user.beginner_thing %>初心者さんです！<br>
+				<%= @user.beginner_thing %>歴：<%= @user.beginner_period %> レベル：<%= @user.beginner_level %>程度</h5><br><br>
+				<h5>あなたは<%= @user.expert_thing %>の有識者さんです！<br>
+				<%= @user.expert_thing %>歴：<%= @user.expert_period %> レベル：<%= @user.expert_level %>程度</h5>
 				<br>
-              <h2>ここに文章</h2>
+              <h3><i class="fa fa-chevron-right"></i>自己紹介</h3>
 　　　　　　　　　<div class="nomadBox2">
 				<p><%= @user.introduction %></p>
             </div>
-
-		</div>
+          </div>
 	</div>
 </div>

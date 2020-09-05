@@ -2,18 +2,23 @@
 <!-- ここにコメント欄といいね機能を追加 コメントするとこのページに反映される-->
 <div class="container">
 	<div class="row">
-		<div class="col-xs-3">
-		</div>
+		<div class="col-md-4"></div>
+		  <div class="col-md-4">
+			<h2>投稿詳細</h2></div>
+			   <div class="col-md-4"></div>
+			</div>
 
-		<div class="col-xs-9">
-			<h2>投稿詳細</h2>
-
-			<table class="table">
+			   <div class="row">
+		         <div class="col-md-2"></div>
+		           <div class="col-md-8">
+			　　　　  <table class="table">
 				<tr>
 					<td>
+					 <div class="button3">
 						<%= link_to user_path(@find_post.user.id) do %>
 						<%= attachment_image_tag(@find_post.user, :profile_image, size: "100x100", fallback: "default1.png") %><br>
 						<%= @find_post.user.name %>
+					 </div>
 						<% end %>
 					</td>
 					<!-- 投稿のタイトル -->
@@ -83,8 +88,9 @@
 			<%= f.hidden_field :post_id, :value => @find_post.id %>
 			<%= f.submit "送信", class: "pull-right" %>
 			<% end %>
-
+　　　　　　　　</div>
 			<!-- コメント欄作成 -->
+			<div class="col-md-2"></div>
 
 		</div>
 	</div>
