@@ -9,28 +9,34 @@
 		<%= f.search_field :title_cont , class: "form-control" ,placeholder: "探してみてね"%>
 		<%= f.submit '検索' , class: 'btn btn-default'%>
 		<% end %>
-	　</span>
+	  </span>
 	</div>
    </div>
 </div>
 	<!-- 検索ボタン -->
 
   <div class="row">
-  	 <div class="col-md-4"></div>
-  	  <div class="col-md-4">
-		 <h2>トピック一覧</h2>
-		 <div class="col-md-4"></div>
+  	 <div class="col-md-2"></div>
+  	  <div class="col-md-3">
+		 <h2>みんなの投稿</h2>
+    </div>
+		 <div class="col-md-6">
+     
+     </div>
+     <div class="col-md-1">
+   <!-- 新規投稿ボタン -->
+         <div class="btn-real">
+           <div class="buttoncontent"  data-toggle="modal" data-target="#exampleModal">
+            <i class="fas fa-pencil-alt"></i>
+          </div>
+         </div>
+     </div>
 	  </div>
   </div>
 
    <!-- 投稿一覧-->
   <div class="row">
-     <div class="col-md-2 sidebar">
-   <!-- 新規投稿ボタン -->
-      <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#exampleModal">
-        投稿
-      </button>
-    </div>
+    <div class="col-md-2 sidebar"></div>
 
     <!-- 新規投稿表示 -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,9 +67,11 @@
     </div>
   </div>
 </div>
-	   <div class="col-md-10 posts">
-	   	<%= render 'posts', posts: @posts %>
-	   	</div>
-       </div>
-	</div>
+
+ <!-- 新規投稿表示 -->
+  
+	     <div class="col-md-9 posts">
+	   	   <%= render 'posts', posts: @posts %>
+	     </div>
+  
 </div>

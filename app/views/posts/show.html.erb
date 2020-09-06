@@ -12,7 +12,8 @@
 			   <div class="row">
 		          <div class="col-md-2"></div>
 		          	<div class="col-md-1">
-		         	　<figure class="box2">
+
+		         	<figure class="box2">
 						<%= link_to user_path(@find_post.user.id) do %>
 						<%= attachment_image_tag(@find_post.user, :profile_image, size: "100x100", fallback: "default1.png") %>
 						<%= @find_post.user.name %>
@@ -23,7 +24,7 @@
 					<!-- ブラウザのurlと同じidのpostのデータが欲しい @find_postはデータを持ったpost-->
 					<!-- 本の内容 -->
 				<div class="nomadBox_deco8">
-				　<%= @find_post.body %><br>
+				<%= @find_post.body %><br>
 					<!-- いいね機能 -->
 						<!-- ifにかけるのは投稿されたトピック@postだとpost.new（空の投稿)だからいいねが反映されない -->
 
@@ -31,11 +32,12 @@
 							<% if @find_post.do_our_best_by?(current_user) %>
 
 							<%= link_to post_do_our_bests_path(@find_post), method: :delete do %>
-							<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+							<i class="far fa-laugh-squint"></i>
 							<%= @find_post.do_our_bests.count %>
 							<% end %>
 							<% else %>
 							<%= link_to post_do_our_bests_path(@find_post), method: :post do %>
+							<i class="far fa-laugh-squint"></i>
 							頑張ろう！
 							<% end %>
 							<% end %>
@@ -51,19 +53,19 @@
 		</div>
 	</div>
            
-　　　<!-- コメント表示欄作成 -->
-	　<!-- ポストコメントモデルに入っている中でpost_idが一緒のもの全て -->
+<!-- コメント表示欄作成 -->
+	<!-- ポストコメントモデルに入っている中でpost_idが一緒のもの全て -->
 			<div class="row">
                   <div class="col-md-2"></div>
 		          	<div class="col-md-1">
-		          		　<figure class="box2">
+		          		<figure class="box2">
 					<% @post_comments.each do |post_comment| %>
 							<%= link_to user_path(@find_post.user.id) do %>
 							<%= attachment_image_tag(@find_post.user, :profile_image, size: "100x100", fallback: "default1.png") %>
 						<br>
 							<%= post_comment.user.name %>
 							<% end %>
-					　　　　</figure>
+					   </figure>
 				     </div>
 				   <div class="col-md-9">
 					<div class="nomadBox_deco82">
@@ -86,7 +88,7 @@
 			<%= f.hidden_field :post_id, :value => @find_post.id %>
 			<%= f.submit "送信", class: "btn-sm btn-danger " %>
 			<% end %>
-			　<div class="col-md-2"></div>
+			<div class="col-md-2"></div>
 			</div>
 
 			<!-- コメント欄作成 -->

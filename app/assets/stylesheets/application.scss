@@ -57,6 +57,177 @@ color:#5f3830;
   border-radius: 20px;
 }
 
+.nomadBox_deco8 {
+  position: relative;
+  margin: 2em auto;
+  padding: 2.5em 1.5em 1.5em 1.5em;
+  width: 90%;
+  color: #272727;
+  background-color: rgba(255,155,18, .07);
+  box-shadow: 0 2px 2px #CCC;
+}
+.nomadBox_deco8:before {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: -1.3em;
+  height: 2em;
+  width: 50%;
+  max-width: 200px;
+  content: "";
+  border: 1px solid #CCC;
+  background-color: #FFF;
+  opacity: .4;
+  transform: rotate( -5deg );
+}
+.nomadBox_deco8 p {
+  padding: 0;
+  margin: 0;
+}
+
+.nomadBox_deco82 {
+  position: relative;
+  margin: 2em auto;
+  padding: 2.5em 1.5em 1.5em 1.5em;
+  width: 90%;
+  color: #272727;
+  background-color: rgba(77,161,255, .07);
+  box-shadow: 0 2px 2px #CCC;
+}
+.nomadBox_deco82:before {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: -1.3em;
+  height: 2em;
+  width: 50%;
+  max-width: 200px;
+  content: "";
+  border: 1px solid #CCC;
+  background-color: #FFF;
+  opacity: .4;
+  transform: rotate( -5deg );
+}
+.nomadBox_deco82 p {
+  padding: 0;
+  margin: 0;
+}
 
 
+.balloon5 {
+  width: 100%;
+  margin: 1.5em 0;
+  overflow: hidden;
+}
 
+.balloon5 .faceicon {
+  float: left;
+  margin-right: -90px;
+  width: 80px;
+}
+
+.balloon5 .faceicon img{
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.balloon5 .chatting {
+  width: 100%;
+}
+
+.says {
+  display: inline-block;
+  position: relative; 
+  margin: 5px 0 0 105px;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: #d7ebfe;
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px; 
+  left: -24px;
+  border: 12px solid transparent;
+  border-right: 12px solid #d7ebfe;
+}
+
+.says p {
+  margin: 0;
+  padding: 0;
+}
+
+.box25{
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+}
+.box25:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.box25 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url(http://nelog.jp/wp-content/uploads/2016/03/heart_animation.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+}
+.heart:hover {
+  background-position: -2800px 0;
+  -webkit-transition: background 1s steps(28);
+  transition: background 1s steps(28);
+}
+
+
+@keyframes heartAnimation {
+  0% {
+    /* アイコンサイズをもとのより小さくする */
+    transform: scale(0.5);
+  }
+  10% {
+    transform: scale(0.7);
+  }
+  30% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1.5);
+  }
+  100% {
+    /* もとのサイズに戻す */
+    transform: scale(1.0);
+  }
+}
+
+.LikesIcon-fa-heart{
+  font-size: 30px;
+}
+.LikesIcon-fa-heart.heart{
+  /* heartAnimationアニメーションを200ミリ秒かけて実行する */
+  animation: heartAnimation .2s;
+  /* アイコン色を黒から赤へ変更する */
+  color: #e2264d;
+}
