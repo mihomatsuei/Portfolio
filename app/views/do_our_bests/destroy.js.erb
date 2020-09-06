@@ -1,0 +1,1 @@
+$(".post_<%= @post.id %>").html("<%= j(render 'posts/detail',  find_post: @post, user: @user, post_comments: @post_comments ) %>");
