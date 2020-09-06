@@ -1,27 +1,44 @@
-<!-- ブラウザのurlと同じidのpostのデータが欲しい @find_postはデータを持ったpost-->
-<div class="col-md-9">
-  <div class="nomadBox_deco8">
-    <%= find_post.body %><br>
-	<!-- いいね機能 -->
-        <div class='text-right'>
-		  <% if find_post.do_our_best_by?(current_user) %>
-			<%= link_to post_do_our_bests_path(find_post), method: :delete, remote: true do %>
-			 <i class="far fa-laugh-squint"></i>
-			   <%= find_post.do_our_bests.count %>
+
+   <!-- 頑張ろうね機能 -->
+<table class="table-borderless">
+  <tbody>
+    <%= find_post.body %>
+      <tr>
+	    <th>
+          <div class="Heart-Inner-Box-Item-Likes-Icon">	
+          	<% if find_post.do_our_best_by?(current_user) %>
+			<%= link_to "", post_do_our_bests_path(find_post), method: :delete, remote: true %>
+			   <%#= find_post.do_our_bests.count %>
+		  <%# end %>
+		  <% else %>
+		    <%= link_to "",post_do_our_bests_path(find_post),class:"fuga", method: :post, remote: true %>
+   		  <% end %>
+          </div>
+		</th>
+　　<!-- ありがとう機能 -->
+        <th>
+　　　　　　<% if find_post.thank_you_by?(current_user) %>
+			<%= link_to post_thank_yous_path(find_post), method: :delete, remote: true do %>
+			<i class="fas fa-laugh-beam"></i>
+			   <%= find_post.thank_yous.count %>
 		  <% end %>
 		  <% else %>
-		    <%= link_to post_do_our_bests_path(find_post), method: :post, remote: true do %>
-			  <i class="far fa-laugh-squint"></i>
-						頑張ろう！
+		    <%= link_to post_thank_yous_path(find_post), method: :post, remote: true do %>
+			 <i class="far fa-laugh-beam"></i>
+						ありがとう！
 			<% end %>
 		  <% end %>
-					<!-- ポストコメントモデルに入っている中でpost_idが一緒のもののコメント数を表示 -->
-					コメント数:<%= post_comments.count %>件
-					<!-- もし、投稿をしたユーザー(@user = @find_post.user)と現在ログインしているユーザー(current_user)が一致していたらEditとDestroyを表示 -->
-					<% if user == current_user %>
-					<%= link_to "Edit", edit_post_path(find_post), class: "btn-sm btn-success edit_post_#{find_post.id}" %>
-					<%= link_to "Destroy", post_path(find_post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_post_#{find_post.id}" %>
-					<% end %>
-			 </div>
-	    </div>
-	 </div>
+		</th>
+		<th>
+		  コメント数:<%= post_comments.count %>件
+		</th>
+		<!-- もし、投稿をしたユーザー(@user = @find_post.user)と現在ログインしているユーザー(current_user)が一致していたらEditとDestroyを表示 -->
+		<th>
+		<% if user == current_user %>
+		<%= link_to "Edit", edit_post_path(find_post), class: "btn-sm btn-success edit_post_#{find_post.id}" %>
+		<%= link_to "Destroy", post_path(find_post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_post_#{find_post.id}" %>
+		<% end %>
+	    </th>
+	　 </tr>
+　　</tbody>
+</table>

@@ -181,53 +181,53 @@ color:#5f3830;
     box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 .box25 p {
-    margin: 0; 
+    margin: 0;
     padding: 0;
 }
 
-.heart {
-  width: 100px;
-  height: 100px;
-  background: url(http://nelog.jp/wp-content/uploads/2016/03/heart_animation.png) no-repeat;
-  background-position: 0 0;
-  cursor: pointer;
+ @keyframes heartBlast {
+   0% {
+     background-position: left;
+   }
+   100% {
+     background-position: right;
+   }
+ }
+
+.Heart-Inner-Box-Item-Likes {
+  position: relative;
 }
-.heart:hover {
-  background-position: -2800px 0;
-  -webkit-transition: background 1s steps(28);
-  transition: background 1s steps(28);
+.Heart-Inner-Box-Item-Likes-Icon {
+  position: relative;
+  left: -35px;
+  background: image-url("web_heart_animation.png");
+  background-position: left;
+  background-size: 2900%;
+  background-repeat: no-repeat;
+  width: 130px;
+  height: 130px;
+    z-index: 1;
+}
+
+.HeartAnimation {
+  display: inline-block;
+  background-position: right;
+  -webkit-animation-name: heartBlast;
+  animation-name: heartBlast;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(28);
+  animation-timing-function: steps(28);
+}
+
+.Heart-Inner-Box-Item-Likes-Icon a{
+position: absolute;
+  width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2;
 }
 
 
-@keyframes heartAnimation {
-  0% {
-    /* アイコンサイズをもとのより小さくする */
-    transform: scale(0.5);
-  }
-  10% {
-    transform: scale(0.7);
-  }
-  30% {
-    transform: scale(0.9);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  80% {
-    transform: scale(1.5);
-  }
-  100% {
-    /* もとのサイズに戻す */
-    transform: scale(1.0);
-  }
-}
-
-.LikesIcon-fa-heart{
-  font-size: 30px;
-}
-.LikesIcon-fa-heart.my-heart{
-  /* heartAnimationアニメーションを200ミリ秒かけて実行する */
-  animation: heartAnimation .2s;
-  /* アイコン色を黒から赤へ変更する */
-  background: url(http://nelog.jp/wp-content/uploads/2016/03/heart_animation.png) no-repeat;  color: #e2264d;
-}

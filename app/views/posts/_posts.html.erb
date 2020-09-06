@@ -1,52 +1,33 @@
 
 <!-- 投稿一覧 -->
 <div class="card mb-1">
-   <div class="card-body">
-   <table class="table-borderless">
-   	    <table class=" table-hover">
-				<tbody>
-					<% posts.each do |post| %>
-					<tr>
-						<td>
-							<%= link_to user_path(post.user) do %>
-							  <figure class="box">
-							<%= attachment_image_tag(post.user, :profile_image, size: "100x100", fallback: "default1.png") %></figure>
-							<% end %>
-						</td>
-						<td>
-							<p class="card-text">
-							<%= link_to post.title, post_path(post), class: "post_#{post.id}" %></p></td>
-                        <td>
-	                    <p class="card-text">
-	                    	<small>
-		                 <%= simple_format post.body %></small></p>
-		                </td>
-
-						<!-- 頑張ろうね ありがとう機能 -->
-						<td>
-							<!-- ifにかけるのはeach文のpost @postだとpost.new（空の本)だから頑張ろうね ありがとうが反映されない -->
-							<!-- post.do_our_bests(頑張ろうねされた投稿)の中に、引数で送られたuserのidがあるかどうか？ -->
-							<% if post.do_our_best_by?(current_user) %>
-							<%= link_to post_do_our_bests_path(post), method: :delete do %>
-							<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-							<%= post.do_our_bests.count %>
-							<% end %>
-							<% else %>
-							<%= link_to post_do_our_bests_path(post), method: :post do %>
-							<i class="fa fa-heart-o" aria-hidden="true"></i>
-							<%= post.do_our_bests.count %>
-							<% end %>
-							<% end %>
-						</td>
-
-<!-- post#showの@post_comments.countと比較 -->
-<!-- それぞれの投稿に対してのコメント数を表示 -->
-<!--post(eachで回しているpost).post_comments(モデル名).count-->
-						<td>コメント数:<%= post.post_comments.count %>件</td>
-					  </tr>
-				<% end %>
-			  </tbody>
-			</table>
-		  </table>
-      </div>
+  <div class="card-body">
+    <table class="table-borderless">
+   	  <table class=" table-hover">
+	    <tbody>
+		  <% posts.each do |post| %>
+		    <tr>
+			  <td>
+			  <%= link_to user_path(post.user) do %>
+			  <figure class="box">
+			  <%= attachment_image_tag(post.user, :profile_image, size: "100x100", fallback: "default1.png") %></figure>
+			  <% end %>
+			  </td>
+			  <td>
+			    <p class="card-text">
+			  <%= link_to post.title, post_path(post), class: "post_#{post.id}" %></p></td>
+              <td>
+	            <p class="card-text">
+	              <small>
+		      <%= simple_format post.body %></small>
+		        </p>
+		      </td>
+			  <td>コメント数:<%= post.post_comments.count %>件
+		     </td>
+		   </tr>
+			 <% end %>
+		</tbody>
+	  </table>
+    </table>
   </div>
+</div>

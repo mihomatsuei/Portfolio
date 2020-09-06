@@ -1,1 +1,10 @@
-$(".post_<%= @post.id %>").html("<%= j(render 'posts/detail',  find_post: @post, user: @user, post_comments: @post_comments ) %>");
+//$(".post_<%= @post.id %>").html("<%= j(render 'posts/detail',  find_post: @post, user: @user, post_comments: @post_comments ) %>");
+var $btn = $(".post_<%= @post.id %> .Heart-Inner-Box-Item-Likes-Icon");
+if ($btn.hasClass('HeartAnimation')) {
+   $btn.removeClass("HeartAnimation");
+} else {
+    $btn.addClass("HeartAnimation");
+}
+var $link_anchor = $(".post_<%= @post.id %> .Heart-Inner-Box-Item-Likes-Icon a")
+$link_anchor.attr('href',"<%=post_do_our_bests_path(@post) %>");
+$link_anchor.attr('data-method','post');
