@@ -1,12 +1,17 @@
 <!-- 新規投稿がされるとこのページが表示される -->
 <div class="container">
 	<div class="row">
-		<div class="col-md-2"></div>
-		  <div class="col-md-8">
+		<div class="col-md-3"></div>
+		  <div class="col-md-6">
 		  		<!-- 投稿のタイトル -->
-			<h2><%= link_to @find_post.title, post_path(@find_post.id) %></h2>
+			<h2><%=  @find_post.title %></h2>
 		  </div>
-		<div class="col-md-2"></div>
+		  <div class="col-md-2"></div>
+		<div class="col-md-1">
+			<div class="button">
+			<%= link_to 'もどる', posts_path %>
+		    </div>
+		</div>
 	</div>
      <br>
              <!-- 投稿の本文 -->
@@ -15,16 +20,18 @@
 		  <div class="col-md-1">
 		     <figure class="box2">
 				<%= link_to user_path(@find_post.user.id) do %>
-				<%= attachment_image_tag(@find_post.user, :profile_image, size: "100x100", fallback: "default1.png") %>
+				<%= attachment_image_tag(@find_post.user, :profile_image, size: "100x100", fallback: "default#{@user.default_image}.png") %>
 				<%= @find_post.user.name %>
 				<% end %>
 			</figure>
 		  </div>
 		  <div class="col-md-8">
             <div class="nomadBox_deco8">
+            	<%= @find_post.body %>
 		      <div class="post_<%= @find_post.id %>">
                 <%= render 'detail', find_post: @find_post,post_comments:@post_comments,user:@user %>
               </div>
+
 	       </div>
 		 </div>
     </div>
@@ -39,8 +46,8 @@
 		</div>
 	　 <div class="col-md-1">
 		  	<figure class="box2">
-					<%= link_to user_path(@find_post.user.id) do %>
-						<%= attachment_image_tag(@find_post.user, :profile_image, size: "100x100", fallback: "default1.png") %>
+					<%= link_to user_path(post_comment.user.id) do %>
+						<%= attachment_image_tag(@find_post.user, :profile_image, size: "100x100", fallback: "default#{post_comment.user.default_image}.png") %>
 						<br>
 						<%= post_comment.user.name %>
 					<% end %>
@@ -51,14 +58,20 @@
 	    <div class="nomadBox_deco82 test ">
 	      <table class="table-borderless">
           <tbody>
+          	<%= post_comment.comment %>
           	<tr>
-	          	<th style="width:570px;">
-		          	<%= post_comment.comment %>
+	          	<th style="width:70px;">
+		          	
 		        	</th>
 		        	<th>
+		        	<div class="post_comment<%= @post_comment.id %>">
+                    <%= render 'detail', find_post: @find_post,post_comments:@post_comments,user:@post_comment.user %>
+                    </div>
+                </th>
+                    <th>
 		          	<div class='btn-sticky'>
-		            	<% if post_comment.user == current_user%>
-		            		<%= link_to "削除", post_comment_path(post_comment), method: :delete %>
+		            <% if post_comment.user == current_user%>
+		            <%= link_to "削除", post_comment_path(post_comment), method: :delete %>
 		            	<% end %>
 		          	</div>
 		        	</th>

@@ -1,25 +1,29 @@
-<header class="container-fluid">
-<div class="row">
- </div>
+<div id="menu">
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="menu-inner">
+            <ul>
+               <% if user_signed_in? %>
+               <p>こんにちは! <%= current_user.name %>さん</p>
+                <li><%= link_to 'びーとーくとは？', homes_about_path %></li>
+                <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
+                <li><%= link_to 'みんなの投稿', posts_path %></li>
+                <li><%= link_to '仲間たち', users_path %></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                <% else %><br>
+                <p>こんにちは! ゲストさん</p>
+                <li><%= link_to 'びーとーくとは？', homes_about_path %></li>
+                <li><%= link_to '新規登録', new_user_registration_path %></li>
+                <li>
+                <%= link_to 'ログイン', new_user_session_path %></li>
+                <% end %>
+            </ul>
+        </div>
 
-    <!-- 各種リンク。ログイン時、非ログイン時で表示切替。 -->
-      <nav class="navbar navbar-expand-sm bg-light">
-       <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-           <p>こんにちは! <%= current_user.name %>さん</p>
-          <li class="nav-item"><%= link_to 'びーとーくとは？', homes_about_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to '投稿一覧', posts_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ユーザー一覧', users_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
-        <!-- 非ログイン -->
-        <% else %><br>
-        <p>こんにちは! ゲストさん</p>
-            <p>ご利用の際は<%= link_to '会員登録', new_user_registration_path, class: 'nav-link' %>をお願いいたします<p>
-          <li class="nav-item"><%= link_to 'びーとーくとは？', homes_about_path, class: 'nav-link' %></li>
-          <li class="nav-item" ><%= link_to '新規登録', new_user_registration_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %></li>
-        <% end %>
-      </ul>
-  </nav>
-</header>
+        <svg version="1.1" id="blob"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path id="blob-path" d="M60,500H0V0h60c0,0,20,172,20,250S60,900,60,500z"/>
+        </svg>
+    </div>

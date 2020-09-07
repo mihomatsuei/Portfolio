@@ -26,6 +26,43 @@ HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
 英語の質問気軽にください〜！',
   password: '111111',
   password_confirmation: '111111',
-  }
+  },
+
+{
+  id: 2,
+  name: 'ぷにぷに',
+  email: '1@1',
+  beginner_thing: '英会話',
+  beginner_period: '1ヶ月',
+  beginner_level: '全くしゃべれません',
+  expert_thing: '睡眠',
+  expert_period: '20年',
+  expert_level: 'その人に合った睡眠グッズを紹介できる',
+  introduction: 'こんにちは！全く英語が喋れす、これからオンライン英会話に挑戦しよう
+  と思っています。同じような方とお話できたらと思い登録いたしました。
+  安眠に命をかけてます。睡眠グッズやベッド、布団など色々試したので力になれればと思います。
+  よろしくお願いします！',
+  password: '111111',
+  password_confirmation: '111111',
+  },
+
+  {
+  id: 3,
+  name: 'にこにこ',
+  email: '1@1',
+  beginner_thing: '着物',
+  beginner_period: 'これから始めようと思ってます',
+  beginner_level: '動画をみながら何とか着付けができる',
+  expert_thing: '筋トレ',
+  expert_period: '半年',
+  expert_level: 'パーソナルトレーニングジムに半年通っている',
+  introduction: 'はじめまして！着物を一人で着られるようになって、
+  カフェや美術館巡りできるようになったらなと思ってます。筋トレで７キロ痩せました。
+  筋トレ、オススメのプロテインなどなんでも聞いてください。よろしくお願いします。
+  ',
+  password: '111111',
+  password_confirmation: '111111',
+  },
+
   ]
  )

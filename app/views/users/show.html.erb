@@ -2,7 +2,7 @@
   <div class="row">
 	<div class="col-md-1"></div>
 	<div class="col-md-3">
-	  <h2>マイページ</h2>
+	  <h2 class='text-center'>マイページ</h2>
 		 <table class="table">
 		  <tr>
 		  	<figure class="box2">
@@ -26,15 +26,19 @@
 	</tr>
 	       </table>
 	<!-- フォローボタン-->
-			<!--  @user = User.find(params[:id]) -->
 		   <% @user ||= current_user %>
 			<% if @user != current_user %>
 			<% if current_user.following?(@user) %>
-			<%= link_to "フォロー外す", unfollow_path(@user.id), method: :POST, class: "btn btn-primary" %>
+			 <div class='btn-sticky'>
+			<%= link_to "フォローを外す", unfollow_path(@user.id), method: :POST %>
+		    </div>
 			<% else %>
-			<%= link_to "フォローする", follow_path(@user.id), method: :POST, class: "btn btn-success" %>
+			 <div class='btn-sticky2'>
+			<%= link_to "フォローする", follow_path(@user.id), method: :POST %>
+		    </div>
 			<% end %>
 			<% end %>
+			<br>
 	<!-- フォローボタン-->
 	 <div class='btn-sticky'>
 	<%= link_to 'プロフィール編集', edit_user_path(@user) %>

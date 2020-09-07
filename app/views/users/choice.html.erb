@@ -13,20 +13,17 @@
  </div>
 
 　<div class="row">
-    <div class="col-md-4"> 
-       <input type="radio" name="grp1" value="1">項目１
-       <input type="radio" name="grp1" value="2">項目２
-       <input type="radio" name="grp1" value="3">項目３
-       <input type="button" value="ボタン" onclick="getRadioValue('grp1');">
+    <div class="col-md-4">
     </div>
     <div class="col-md-4">
       <%= form_for @user,url: {action: "update"} do |f| %>
         <div class='text-center'>
             <figure class="box2">
-            <%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "default#{@user.default_image}.png", class: "image-chice"%>
+            <%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "default#{@user.default_image}.png", class: "image-choice"%>
             </figure>
           <br>
-          <%= f.attachment_field :profile_image, id: "chice-image" %>
+          <div class="item_image_btn">
+          <%= f.attachment_field :profile_image, id: "choice-image" %>
           <%=f.hidden_field :default_image %>
         </div>
         <br>
@@ -34,6 +31,7 @@
          <% end %>
     </div>
   </div>
+</div>
   <br>
   <div class="selection-group">
     <div class="row text-center">

@@ -2,46 +2,44 @@
    <!-- 頑張ろうね機能 -->
 <table class="table-borderless">
   <tbody>
-    <%= find_post.body %>
       <tr>
-	    <th style="width:295px;">
+      	<th style="width:340px;"></th>
+	    <th>
           <% if find_post.do_our_best_by?(current_user) %>
-          <div class="Heart-Inner-Box-Item-Likes-Icon exist-heart">	
+          <div class="Heart-Inner-Box-Item-Likes-Icon exist-heart">
 			<%= link_to "", post_do_our_bests_path(find_post), method: :delete, remote: true %>
-			<span class="do_our_bests_count"><%=find_post.do_our_bests.count %></span>
+			<span class="do_our_bests_count">
+			  <%=find_post.do_our_bests.count %>
+			</span>
 			   <%#= find_post.do_our_bests.count %>
 		  <%# end %>
           </div>
 		  <% else %>
-          <div class="Heart-Inner-Box-Item-Likes-Icon">	
+          <div class="Heart-Inner-Box-Item-Likes-Icon">
 		    <%= link_to "",post_do_our_bests_path(find_post),class:"fuga", method: :post, remote: true %>
-		    <span class="do_our_bests_count"><%=find_post.do_our_bests.count %></span>
+		    <span class="do_our_bests_count">
+		      <%=find_post.do_our_bests.count %></span>
           </div>
    		  <% end %>
 
 		</th>
 　　<!-- ありがとう機能 -->
-        <th style="width:50px;">
+        <th style="width:90px;">
 　　　　　　<% if find_post.thank_you_by?(current_user) %>
 			<%= link_to post_thank_yous_path(find_post), method: :delete, remote: true do %>
 			ありがとう!
 
 			<i class="fas fa-laugh-beam"></i>
-			
 			   <%= find_post.thank_yous.count %>
 		  <% end %>
 		  <% else %>
 		    <%= link_to post_thank_yous_path(find_post),class:"fuga", method: :post, remote: true do %>
 		    ありがとう!
-		    
 			 <i class="far fa-laugh-beam"></i>
-			 
 		  <% end %>
 		  <% end %>
 		</th>
-		<th style="width:120px;">
-		  コメント数:<%= post_comments.count %>件
-		</th>
+		
 		<!-- もし、投稿をしたユーザー(@user = @find_post.user)と現在ログインしているユーザー(current_user)が一致していたらEditとDestroyを表示 -->
 		<th>
 

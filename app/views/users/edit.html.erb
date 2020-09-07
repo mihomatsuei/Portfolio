@@ -16,11 +16,12 @@
      <!-- 画像選択欄 -->
   <div class="row">
    <div class="col-md-3"></div>
+
      <div class="col-md-6">
        <div class='text-center'>
          <%= form_for(@user) do |f| %>
           <figure class="box2">
-          <%= attachment_image_tag @user, :profile_image, size: "100x100",  fallback: "default#{@user.default_image}.png", class: "image-chice" %>
+          <%= attachment_image_tag @user, :profile_image, size: "100x100",  fallback: "default#{@user.default_image}.png", class: "image-choice" %>
           </figure>
           <div class="form-image">
            <%= f.attachment_field :profile_image , size: "100x100"%>

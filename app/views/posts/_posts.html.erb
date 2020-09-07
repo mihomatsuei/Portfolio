@@ -11,20 +11,22 @@
 
 			  <%= link_to user_path(post.user) do %>
 			  <figure class="box">
-			  <%= attachment_image_tag(post.user, :profile_image, size: "100x100", fallback: "default1.png") %></figure>
+			  <%= attachment_image_tag(post.user, :profile_image, size: "100x100", fallback: "default#{post.user.default_image}.png") %>
+			  </figure>
 			  <% end %>
 			  </td>
 			  <td>
-			    <p class="card-text">
-			  <%= link_to post.title, post_path(post), data: {"turbolinks" => false} ,class: "post_#{post.id}" %></p></td>
+			  <small>
+			   
+			  <%= link_to post.title, post_path(post), data: {"turbolinks" => false} ,class: "post_#{post.id}" %>
+			  </small>
+			  </td>
               <td>
-	            <p class="card-text">
-	              <small>
+	           <small>
 		      <%= simple_format post.body %></small>
-		        </p>
+		        
 		      </td>
-			  <td>コメント数:<%= post.post_comments.count %>件
-		     </td>
+			 
 		   </tr>
 			 <% end %>
 		</tbody>

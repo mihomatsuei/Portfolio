@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         @user.profile_image_id = ""
         @user.save
        end
-      redirect_to user_path(@user.id), notice: "You have updated user successfully."
+      redirect_to user_path(@user.id)
     else
       render :edit
     end

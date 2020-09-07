@@ -1,49 +1,45 @@
-<div class="index-container" style="width:40%; margin: 50px auto;">
+<div class=container>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
 		<h2>仲間をみつけよう</h2>
-	</div>
-		<table class="table">
-			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-					<th colspan="3"></th>
-				</tr>
-			</thead>
+	    </div>
+	    <div class="col-md-4"></div>
+    </div>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+				<table class="table">
+					<thead>
+						<tr>
+							<th></th>
+							<th></th>
+							<th colspan="3"></th>
+						</tr>
+					</thead>
 
-			<tbody>
-				<% @users.each do |user| %>
-				<tr>
-					<td>
-                    <figure class="box">
-						<%= attachment_image_tag(user, :profile_image, size: "100x100", fallback: "default1.png") %>
-					</figure></td>
-					<td><%= user.name %></td>
-					<!-- ここにフォローボタンを追加 -->
-					<!-- 左辺が未定義または偽なら代入(左辺をまず評価して、結果が真なら何もせず、偽なら右辺へ代入する) -->
-					<!-- userまたはuserが偽なら今ログインしているuser -->
-					<% user ||= current_user %>
-					<td><%= user.follower.count %></td>
-					<td><%= user.followed.count %></td>
+					<tbody>
+						<% @users.each do |user| %>
+						<tr>
+							<td>
 
-					<td><!-- 今ログインしているユーザーがuserじゃない(自分にフォローできなくする) -->
-						<% if user != current_user %>
-						<!-- 今ログインしているユーザーがフォローをしていれば-->
-						<% if current_user.following?(user) %>
-						<%= link_to "フォロー外す", unfollow_path(user.id), method: :POST %>
-						<% else %>
-						<%= link_to "フォローする", follow_path(user.id), method: :POST %>
+							<%= link_to user_path(user.id) do %>
+			                <figure class="box">
+								<%= attachment_image_tag(user, :profile_image, size: "100x100", fallback: "default#{user.default_image}.png") %>
+							</figure>
+						    </td>
+							<td><%= user.name %><br>
+								<%= user.beginner_thing %>初心者です！<br>
+								レベル：<%= user.beginner_level %>程度<br>
+								<%= user.expert_thing %>は得意です！<br>
+								レベル：<%= user.expert_level %>程度
+							</td>
+						</tr>
 						<% end %>
 						<% end %>
-					</td>
-					<!-- ここにフォローボタンを追加 -->
-
-					<td><%= link_to "Show", user_path(user), class: "user_#{user.id}" %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-
+					</tbody>
+				</table>
+		<div class="col-md-2"></div>
+		</div>
 	</div>
 </div>

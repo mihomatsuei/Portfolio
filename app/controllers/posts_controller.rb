@@ -21,7 +21,6 @@ class PostsController < ApplicationController
     @post.save
     @user = current_user
     @posts = Post.all #postモデルからすべてのインスタンス取得
-    
   end
 
   def show
@@ -50,7 +49,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post.id), notice: "You have updated post successfully."
+      redirect_to post_path(@post.id)
     else
       render "edit"
     end
@@ -59,7 +58,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path, notice: "successfully delete post!"
+    redirect_to posts_path
   end
 
   private
