@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 	<div class="col-md-1"></div>
-		<div class="col-md-3">
+	<div class="col-md-3">
 	  <h2>マイページ</h2>
 		 <table class="table">
 		  <tr>
@@ -46,12 +46,14 @@
 	<!-- 右側-->
 			<div class="col-xs-8">
 				<br><br><br><br><br>
-				<div class="nomadBox_deco82">
+			  <div class="nomadBox_deco82">
 				あなたは<%= @user.beginner_thing %>初心者さんです！<br>
-				<%= @user.beginner_thing %>歴：<%= @user.beginner_period %> レベル：<%= @user.beginner_level %>程度</div>
-				<div class="nomadBox_deco82">
+				<%= @user.beginner_thing %>歴：<%= @user.beginner_period %> レベル：<%= @user.beginner_level %>程度
+			  </div>
+			  <div class="nomadBox_deco82">
 				あなたは<%= @user.expert_thing %>の有識者さんです！<br>
-				<%= @user.expert_thing %>歴：<%= @user.expert_period %> レベル：<%= @user.expert_level %>程度</div>
+				<%= @user.expert_thing %>歴：<%= @user.expert_period %> レベル：<%= @user.expert_level %>程度
+			 </div>
              <div class="nomadBox_deco8">
 				<p><%= @user.introduction %></p>
             </div>

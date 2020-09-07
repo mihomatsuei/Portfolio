@@ -8,6 +8,7 @@
 		  <% posts.each do |post| %>
 		    <tr>
 			  <td>
+
 			  <%= link_to user_path(post.user) do %>
 			  <figure class="box">
 			  <%= attachment_image_tag(post.user, :profile_image, size: "100x100", fallback: "default1.png") %></figure>
@@ -15,7 +16,7 @@
 			  </td>
 			  <td>
 			    <p class="card-text">
-			  <%= link_to post.title, post_path(post), class: "post_#{post.id}" %></p></td>
+			  <%= link_to post.title, post_path(post), data: {"turbolinks" => false} ,class: "post_#{post.id}" %></p></td>
               <td>
 	            <p class="card-text">
 	              <small>

@@ -4,7 +4,7 @@
   <tbody>
     <%= find_post.body %>
       <tr>
-	    <th>
+	    <th style="width:295px;">
           <div class="Heart-Inner-Box-Item-Likes-Icon">	
           	<% if find_post.do_our_best_by?(current_user) %>
 			<%= link_to "", post_do_our_bests_path(find_post), method: :delete, remote: true %>
@@ -16,27 +16,37 @@
           </div>
 		</th>
 　　<!-- ありがとう機能 -->
-        <th>
+        <th style="width:50px;">
 　　　　　　<% if find_post.thank_you_by?(current_user) %>
 			<%= link_to post_thank_yous_path(find_post), method: :delete, remote: true do %>
+			ありがとう!
+
 			<i class="fas fa-laugh-beam"></i>
+			
 			   <%= find_post.thank_yous.count %>
 		  <% end %>
 		  <% else %>
-		    <%= link_to post_thank_yous_path(find_post), method: :post, remote: true do %>
+		    <%= link_to post_thank_yous_path(find_post),class:"fuga", method: :post, remote: true do %>
+		    ありがとう!
+		    
 			 <i class="far fa-laugh-beam"></i>
-						ありがとう！
-			<% end %>
+			 
+		  <% end %>
 		  <% end %>
 		</th>
-		<th>
+		<th style="width:120px;">
 		  コメント数:<%= post_comments.count %>件
 		</th>
 		<!-- もし、投稿をしたユーザー(@user = @find_post.user)と現在ログインしているユーザー(current_user)が一致していたらEditとDestroyを表示 -->
 		<th>
+
 		<% if user == current_user %>
-		<%= link_to "Edit", edit_post_path(find_post), class: "btn-sm btn-success edit_post_#{find_post.id}" %>
-		<%= link_to "Destroy", post_path(find_post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_post_#{find_post.id}" %>
+		  <div class='btn-sticky2'>
+		<%= link_to "編集", edit_post_path(find_post) %>
+	      </div>
+	      <div class='btn-sticky'>
+		<%= link_to "削除", post_path(find_post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+		  </div>
 		<% end %>
 	    </th>
 	　 </tr>
