@@ -2,9 +2,12 @@
 var $btn = $(".post_<%= @post.id %> .Heart-Inner-Box-Item-Likes-Icon");
 if ($btn.hasClass('HeartAnimation')) {
    $btn.removeClass("HeartAnimation");
+} else if($btn.hasClass('exist-heart')){
+    $btn.removeClass("exist-heart");
 } else {
     $btn.addClass("HeartAnimation");
 }
 var $link_anchor = $(".post_<%= @post.id %> .Heart-Inner-Box-Item-Likes-Icon a")
 $link_anchor.attr('href',"<%=post_do_our_bests_path(@post) %>");
 $link_anchor.attr('data-method','post');
+$(".post_<%= @post.id %> .do_our_bests_count").text("<%= @post.do_our_bests.count %>");

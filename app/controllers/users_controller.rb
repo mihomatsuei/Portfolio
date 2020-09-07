@@ -26,6 +26,10 @@ class UsersController < ApplicationController
   def update
        @user = User.find(params[:id])
     if @user.update(user_params)
+       if user_params[:profile_image]=="{}"
+        @user.profile_image_id = ""
+        @user.save
+       end
       redirect_to user_path(@user.id), notice: "You have updated user successfully."
     else
       render :edit
@@ -54,7 +58,7 @@ class UsersController < ApplicationController
 
   private
   def user_params # userモデルのカラムのみを許可
-    params.require(:user).permit(:name,:email, :introduction, :profile_image, :beginner_thing, :beginner_period, :beginner_level, :expert_thing, :expert_period, :expert_level)
+    params.require(:user).permit(:name,:email, :introduction, :profile_image, :beginner_thing, :beginner_period, :beginner_level, :expert_thing, :expert_period, :expert_level,:default_image)
   end
 
   def ensure_correct_user

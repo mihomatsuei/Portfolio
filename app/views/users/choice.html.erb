@@ -12,17 +12,25 @@
    </div>
  </div>
 
-    <div class="row">
-     <div class="col-md-4"></div>
-     <div class="col-md-4">
-      <%= form_for @user,url: {action: "update"} do |f| %>
-      <div class='text-center'>
-        <figure class="box2">
-      <%= attachment_image_tag @user, :profile_image, size: "100x100",  fallback: "default1.png"%></figure><br>
-      <%= f.attachment_field :profile_image %>
+　<div class="row">
+    <div class="col-md-4"> 
+       <input type="radio" name="grp1" value="1">項目１
+       <input type="radio" name="grp1" value="2">項目２
+       <input type="radio" name="grp1" value="3">項目３
+       <input type="button" value="ボタン" onclick="getRadioValue('grp1');">
     </div>
-      <br>
-      <%= f.submit "これにする", class: "btn btn-success btn-block mt-5" %>
+    <div class="col-md-4">
+      <%= form_for @user,url: {action: "update"} do |f| %>
+        <div class='text-center'>
+            <figure class="box2">
+            <%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "default#{@user.default_image}.png", class: "image-chice"%>
+            </figure>
+          <br>
+          <%= f.attachment_field :profile_image, id: "chice-image" %>
+          <%=f.hidden_field :default_image %>
+        </div>
+        <br>
+          <%= f.submit "これにする", class: "btn btn-success btn-block mt-5" %>
          <% end %>
     </div>
   </div>
@@ -31,46 +39,75 @@
     <div class="row text-center">
       <div class="col-md-2"></div>
       <div class="col-md-2">
-       <input id="a" type="radio" name="rate" value="a">
-  <label for="a">  <figure class="box2">
-     <%= image_tag 'default1', size: "100x100" %> </label></figure></div>
-     <div class="col-md-2">
-      <input id="b" type="radio" name="rate" value="b">
-  <label for="b">  <figure class="box2">
-        <%= image_tag 'default2', size: "100x100" %></label></figure></div>
-      <div class="col-md-2">
-        <input id="c" type="radio" name="rate" value="c">
-  <label for="c">  <figure class="box2">
-        <%= image_tag 'default3', size: "100x100" %></label></figure></div>
-        <div class="col-md-2">
-          <input id="d" type="radio" name="rate" value="d">
-  <label for="d">  <figure class="box2">
-     <%= image_tag 'default4', size: "100x100" %></label></figure></div>
-   </div>
-   <br>
-
-      <div class="row text-center">
-          <div class="col-md-2"></div>
-       <div class="col-md-2">
-        <input id="e" type="radio" name="rate" value="e">
-  <label for="e">  <figure class="box2">
-        <%= image_tag 'default5', size: "100x100" %></label></figure></div>
-        <div class="col-md-2">
-          <input id="f" type="radio" name="rate" value="f">
-  <label for="f">  <figure class="box2">
-        <%= image_tag 'default6', size: "100x100" %></label></figure></div>
-        <div class="col-md-2">
-           <input id="g" type="radio" name="rate" value="g">
-  <label for="g">  <figure class="box2">
-       <%= image_tag 'default7', size: "100x100" %> </label></figure></div>
-     <div class="col-md-2">
-       <input id="h" type="radio" name="rate" value="h">
-  <label for="h">  <figure class="box2">
-      <%= image_tag 'default8', size: "100x100" %></label></figure></div>
-    </div>
+        <input id="a" type="radio" name="rate" value="1">
+          <label for="a">
+            <figure class="box2">
+            <%= image_tag 'default1', size: "100x100",class:"default-image","data-value":1%>
+            </figure>
+          </label>
       </div>
-     </div>
+      <div class="col-md-2">
+        <input id="b" type="radio" name="rate" value="2">
+          <label for="b">
+            <figure class="box2">
+              <%= image_tag 'default2', size: "100x100",class:"default-image" ,"data-value":2%>
+            </figure>
+          </label>
+      </div>
+      <div class="col-md-2">
+        <input id="c" type="radio" name="rate" value="3">
+          <label for="c">
+            <figure class="box2">
+                <%= image_tag 'default3', size: "100x100",class:"default-image","data-value":3%>
+          </figure>
+        </label>
+      </div>
+      <div class="col-md-2">
+        <input id="d" type="radio" name="rate" value="4">
+          <label for="d">  
+            <figure class="box2">
+             <%= image_tag 'default4', size: "100x100",class:"default-image","data-value":4 %>
+            </figure>
+          </label>
+      </div>
     </div>
-  </div>
- </div>
+    <br>
+
+    <div class="row text-center">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+          <input id="e" type="radio" name="rate" value="5">
+            <label for="e">
+              <figure class="box2">
+                <%= image_tag 'default5', size: "100x100" ,class:"default-image","data-value":5%>
+              </figure>
+            </label>
+        </div>
+          <div class="col-md-2">
+            <input id="f" type="radio" name="rate" value="6">
+              <label for="f"> 
+                <figure class="box2">
+                <%= image_tag 'default6', size: "100x100",class:"default-image","data-value":6 %>
+                </figure>
+              </label>
+            </div>
+          <div class="col-md-2">
+            <input id="g" type="radio" name="rate" value="7">
+              <label for="g">
+                <figure class="box2">
+                <%= image_tag 'default7', size: "100x100",class:"default-image" ,"data-value":7%>
+                </figure> 
+              </label>
+            </div>
+          <div class="col-md-2">
+            <input id="h" type="radio" name="rate" value="8">
+              <label for="h">  
+                <figure class="box2">
+                <%= image_tag 'default8', size: "100x100",class:"default-image" ,"data-value":8%>
+                </figure>
+              </label>
+          </div>
+      </div>
+    </div>
 </div>
+   

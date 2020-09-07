@@ -5,15 +5,20 @@
     <%= find_post.body %>
       <tr>
 	    <th style="width:295px;">
-          <div class="Heart-Inner-Box-Item-Likes-Icon">	
-          	<% if find_post.do_our_best_by?(current_user) %>
+          <% if find_post.do_our_best_by?(current_user) %>
+          <div class="Heart-Inner-Box-Item-Likes-Icon exist-heart">	
 			<%= link_to "", post_do_our_bests_path(find_post), method: :delete, remote: true %>
+			<span class="do_our_bests_count"><%=find_post.do_our_bests.count %></span>
 			   <%#= find_post.do_our_bests.count %>
 		  <%# end %>
-		  <% else %>
-		    <%= link_to "",post_do_our_bests_path(find_post),class:"fuga", method: :post, remote: true %>
-   		  <% end %>
           </div>
+		  <% else %>
+          <div class="Heart-Inner-Box-Item-Likes-Icon">	
+		    <%= link_to "",post_do_our_bests_path(find_post),class:"fuga", method: :post, remote: true %>
+		    <span class="do_our_bests_count"><%=find_post.do_our_bests.count %></span>
+          </div>
+   		  <% end %>
+
 		</th>
 　　<!-- ありがとう機能 -->
         <th style="width:50px;">

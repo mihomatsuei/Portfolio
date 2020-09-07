@@ -6,7 +6,7 @@
 		 <table class="table">
 		  <tr>
 		  	<figure class="box2">
-	          <%= attachment_image_tag(@user, :profile_image, size: "250x250",fallback: "default1.png") %>
+	          <%= attachment_image_tag(@user, :profile_image, size: "250x250",fallback: "default#{@user.default_image}.png") %>
             </figure>
            </tr>
          <tr>

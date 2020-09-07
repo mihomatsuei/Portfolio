@@ -20,7 +20,7 @@
        <div class='text-center'>
          <%= form_for(@user) do |f| %>
           <figure class="box2">
-          <%= attachment_image_tag @user, :profile_image, size: "100x100",  fallback: "default1.png"%>
+          <%= attachment_image_tag @user, :profile_image, size: "100x100",  fallback: "default#{@user.default_image}.png", class: "image-chice" %>
           </figure>
           <div class="form-image">
            <%= f.attachment_field :profile_image , size: "100x100"%>
@@ -47,7 +47,7 @@
           <div class="field">
             <p>どのくらいのレベルですか？
             (例)簡単なアプリを一人で作れる程度</p>
-            <%= f.text_field :beginner_period, autofocus: true, autocomplete: "beginner_period", class: "form-control offset-6 col-6" %>
+            <%= f.text_field :beginner_level, autofocus: true, autocomplete: "beginner_level", class: "form-control offset-6 col-6" %>
           </div>
 
 

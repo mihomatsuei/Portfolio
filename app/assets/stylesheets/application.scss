@@ -241,7 +241,19 @@ text-decoration: none;
   background-repeat: no-repeat;
   width: 130px;
   height: 130px;
-    z-index: 1;
+  z-index: 1;
+  text-align:center;
+}
+.Heart-Inner-Box-Item-Likes-Icon.exist-heart {
+  position: relative;
+  left: -35px;
+  background: image-url("web_heart_animation_reserve.png");
+  background-position: left;
+  background-size: 2900%;
+  background-repeat: no-repeat;
+  width: 130px;
+  height: 130px;
+  z-index: 1;
 }
 
 .HeartAnimation {
@@ -264,5 +276,7 @@ position: absolute;
     text-indent:-999px;
     z-index: 2;
 }
-
+.do_our_bests_count{
+  z-index:0;
+}
 
