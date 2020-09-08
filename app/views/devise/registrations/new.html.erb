@@ -2,108 +2,109 @@
 <div class="index-container" style="width:40%; margin: 50px auto;">
  <div class="row">
    <div class='text-center'>
-  <h2>新規登録</h2>
+     <h2>新規登録</h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-    <br>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <br>
 
-  <div class="field">
-   <p>お名前（ニックネーム）</p>
-   <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control offset-6 col-6" %>
- </div>
-   <br>
-
- <div class="field">
-   <p>メールアドレス</p>
-   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control offset-6 col-6" %>
- </div>
-  <br>
-  <div class="field">
-  <p>これから始めようとしている、または初めて間もないことは何ですか？ <br>(例)プログラミング</p>
-  <%= f.text_field :beginner_thing, autofocus: true, autocomplete: "beginner_thing", class: "form-control offset-6 col-6" %>
-  <br>
-  <div class="field">
-    <p>はじめてどのくらいですか？</p>
-     <label><%= f.radio_button :beginner_period, "これから" %>これから</label>
-　　　　<label>
-      <%= f.radio_button :beginner_period, "〜１ヶ月" %> 〜１ヶ月</label>
-      <label>
-      <%= f.radio_button :beginner_period, "〜３ヶ月" %> 〜３ヶ月</label>
-      <label>
-      <%= f.radio_button :beginner_period, "〜６ヶ月" %> 〜６ヶ月</label>
-      <label>
-      <%= f.radio_button :beginner_period, "〜１年" %> 〜１年</label>
-      <label>
-      <%= f.radio_button :beginner_period, "１年以上" %> １年以上</label>
-
-  </div>
-
-  <br>
-    <div class="field">
-      <p>どのくらいのレベルですか？
-      (例)簡単なアプリを一人で作れる程度</p>
-      <%= f.text_field :beginner_level, autofocus: true, autocomplete: "beginner_level", class: "form-control offset-6 col-6" %></div>
-
-  <br>
-      <div class="field">
-        <p>何か得意なこと、人にアドバイスできることはありますか？<br>
-        (例)英会話</p>
-        <%= f.text_field :expert_thing, autofocus: true, autocomplete: "expert_thing", class: "form-control offset-6 col-6" %>
-      </div>
-
-  <br>
-      <div class="field">
-        <p>はじめてどのくらいですか？</p>
-        <label>
-          <%= f.radio_button :expert_period, "１ヶ月〜" %>１ヶ月〜</label>
-           <label>
-          <%= f.radio_button :expert_period, "３ヶ月〜" %>３ヶ月〜</label>
-           <label>
-          <%= f.radio_button :expert_period, "６ヶ月〜" %>６ヶ月〜</label>
-           <label>
-          <%= f.radio_button :expert_period, "１年〜" %>１年〜</label>
-           <label>
-          <%= f.radio_button :expert_period, "３年〜" %>３年〜</label>
-           <label>
-          <%= f.radio_button :expert_period, "５年以上" %>５年以上</label>
-      </div>
-
-  <br>
-      <div class="field">
-        <p>どのくらいのレベルですか？<br>
-        （例）アメリカに１年留学行ってました。日常会話を話せる程度</p>
-        <%= f.text_field :expert_level, autofocus: true, autocomplete: "expert_level", class: "form-control offset-6 col-6" %>
-      </div>
-      <br>
         <div class="field">
-          <p>自己紹介</p>
-          <%= f.text_area :introduction, rows:'10', autofocus: true, autocomplete: "introduction", class: "form-control",placeholder: "" %>
+         <p>お名前（ニックネーム）</p>
+         <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control offset-6 col-6" %>
+        </div>
+         <br>
+
+        <div class="field">
+         <p>メールアドレス</p>
+         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control offset-6 col-6" %>
+        </div>
+        <br>
+        <div class="field">
+        <p>これから始めようとしている、または初めて間もないことは何ですか？ <br>(例)プログラミング</p>
+        <%= f.text_field :beginner_thing, autofocus: true, autocomplete: "beginner_thing", class: "form-control offset-6 col-6" %>
+        <br>
+        <div class="field">
+          <p>はじめてどのくらいですか？</p>
+          <label>
+            <%= f.radio_button :beginner_period, "これから" %>これから</label>
+             <label>
+            <%= f.radio_button :beginner_period, "〜１ヶ月" %>〜１ヶ月〜</label>
+             <label>
+            <%= f.radio_button :beginner_period, "〜３ヶ月" %>〜３ヶ月</label>
+             <label>
+            <%= f.radio_button :beginner_period, "〜６ヶ月" %>〜６ヶ月</label>
+             <label>
+            <%= f.radio_button :beginner_period, "〜１年" %>〜１年</label>
+             <label>
+            <%= f.radio_button :beginner_period, "１年以上" %>１年以上</label>
+       
         </div>
 
-      <br>
-         <div class="field">
-            <p>パスワード(6文字以上)</p>
-            <%= f.password_field :password, autocomplete: "new-password", class: "form-control offset-6 col-6" %>
+        <br>
+          <div class="field">
+            <p>どのくらいのレベルですか？
+            (例)簡単なアプリを一人で作れる程度</p>
+            <%= f.text_field :beginner_level, autofocus: true, autocomplete: "beginner_level", class: "form-control offset-6 col-6" %></div>
+
+        <br>
+            <div class="field">
+              <p>何か得意なこと、人にアドバイスできることはありますか？<br>
+              (例)英会話</p>
+              <%= f.text_field :expert_thing, autofocus: true, autocomplete: "expert_thing", class: "form-control offset-6 col-6" %>
+            </div>
+
+        <br>
+            <div class="field">
+              <p>はじめてどのくらいですか？</p>
+              <label>
+                <%= f.radio_button :expert_period, "１ヶ月〜" %>１ヶ月〜</label>
+                 <label>
+                <%= f.radio_button :expert_period, "３ヶ月〜" %>３ヶ月〜</label>
+                 <label>
+                <%= f.radio_button :expert_period, "６ヶ月〜" %>６ヶ月〜</label>
+                 <label>
+                <%= f.radio_button :expert_period, "１年〜" %>１年〜</label>
+                 <label>
+                <%= f.radio_button :expert_period, "３年〜" %>３年〜</label>
+                 <label>
+                <%= f.radio_button :expert_period, "５年以上" %>５年以上</label>
+            </div>
+
+        <br>
+            <div class="field">
+              <p>どのくらいのレベルですか？<br>
+              （例）アメリカに１年留学行ってました。日常会話を話せる程度</p>
+              <%= f.text_field :expert_level, autofocus: true, autocomplete: "expert_level", class: "form-control offset-6 col-6" %>
+            </div>
+            <br>
+              <div class="field">
+                <p>自己紹介</p>
+                <%= f.text_area :introduction, rows:'10', autofocus: true, autocomplete: "introduction", class: "form-control",placeholder: "" %>
+              </div>
+
+            <br>
+               <div class="field">
+                  <p>パスワード(6文字以上)</p>
+                  <%= f.password_field :password, autocomplete: "new-password", class: "form-control offset-6 col-6" %>
+              </div>
+
+
+            <div class="field">
+              <p>パスワード確認用</p>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control offset-6 col-6" %>
+            </div>
+              <br>
+
+          <div class="row">
+              <%= f.submit "新規登録", class: "btn btn-primary btn-block mt-5" %>
+          </div>
+              <% end %>
+
+              <br>
+          <div class="space">
+                <h4>すでに登録済みの方</h4>
+                <h5><%= link_to 'こちら', new_user_session_path  %>からログインしてください</h5>
+          </div>
         </div>
-
-
-      <div class="field">
-        <p>パスワード確認用</p>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control offset-6 col-6" %>
       </div>
-        <br>
-
-    <div class="row">
-        <%= f.submit "新規登録", class: "btn btn-primary btn-block mt-5" %>
     </div>
-        <% end %>
-
-        <br>
-    <div class="space">
-          <h4>すでに登録済みの方</h4>
-          <h5><%= link_to 'こちら', new_user_session_path  %>からログインしてください</h5>
-    </div>
-  </div>
-</div>
-</div>

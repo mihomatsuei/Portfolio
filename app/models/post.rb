@@ -13,8 +13,7 @@ class Post < ApplicationRecord
     def do_our_best_by?(user)
       do_our_bests.where(user_id: user.id).where(post_comment_id:nil).exists?
     end
-	#バリデーションは該当するモデルに設定する。エラーにする条件を設定できる。
-	#presence trueは空欄の場合を意味する。
+
 	validates :title, presence: true
 	validates :body, presence: true, length: {maximum: 200}
 end

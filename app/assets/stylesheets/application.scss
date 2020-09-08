@@ -150,52 +150,35 @@ text-decoration: none;
   margin: 0;
 }
 
-
-.balloon5 {
-  width: 100%;
-  margin: 1.5em 0;
-  overflow: hidden;
-}
-
-.balloon5 .faceicon {
-  float: left;
-  margin-right: -90px;
-  width: 70px;
-}
-
-.balloon5 .faceicon img{
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-}
-
-.balloon5 .chatting {
-  width: 100%;
-}
-
-.says {
-  display: inline-block;
+.nomadBox_deco9 {
   position: relative;
-  margin: 5px 0 0 105px;
-  padding: 17px 13px;
-  border-radius: 12px;
-  background: #d7ebfe;
+  margin: 2em auto;
+  padding: 2.5em 1.5em 1.5em 1.5em;
+  width: 90%;
+  color: #272727;
+  background-color: rgba(255,90,115, .07);
+  box-shadow: 0 2px 2px #CCC;
 }
-
-.says:after {
-  content: "";
-  display: inline-block;
+.nomadBox_deco9:before {
   position: absolute;
-  top: 18px;
-  left: -24px;
-  border: 12px solid transparent;
-  border-right: 12px solid #d7ebfe;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: -1.3em;
+  height: 2em;
+  width: 50%;
+  max-width: 200px;
+  content: "";
+  border: 1px solid #CCC;
+  background-color: #FFF;
+  opacity: .4;
+  transform: rotate( -5deg );
+}
+.nomadBox_deco9 p {
+  padding: 0;
+  margin: 0;
 }
 
-.says p {
-  margin: 0;
-  padding: 0;
-}
 
 .box25{
     position: relative;
@@ -325,7 +308,7 @@ position: absolute;
   position: absolute;
   width: 20px;
   height: 20px;
-  margin-top: -10px;  
+  margin-top: -10px;
 }
 
 .hamburger .line {

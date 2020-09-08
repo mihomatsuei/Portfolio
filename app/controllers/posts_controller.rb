@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @post = Post.new
     @search = Post.includes(:user).ransack(params[:q])

@@ -22,10 +22,14 @@
   	  <div class="col-md-3">
 		    <h2>みんなの投稿</h2>
       </div>
-		  <div class="col-md-5"></div>
-      <div class="col-md-1">
+		  <div class="col-md-4"></div>
+      <div class="col-md-2">
+         <% if user_signed_in? %>
         <div class="button">
-          <%= link_to 'もどる', user_path(current_user.id) %>
+        <%= link_to 'もどる', user_path(current_user.id) %>
+        </div>
+        <div class="button">
+       <%= link_to '仲間たち', users_path %>
         </div>
       </div>
       <div class="col-md-1">
@@ -35,6 +39,7 @@
             <i class="fas fa-pencil-alt"></i>
           </div>
         </div>
+        <% end %>
      </div>
 	 </div>
 

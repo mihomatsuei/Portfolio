@@ -1,12 +1,12 @@
 
 <!-- 投稿一覧 -->
 <div class="card mb-1">
-  <div class="card-body">
-    <table class="table-borderless">
-   	  <table class=" table-hover">
-   	  	<thead>
+  <% posts.each do |post| %>
+	<div class="nomadBox_deco9">
+	  <table class="table-borderless">
+	    <table>
+		  	<thead>
 			<tr>
-				<th></th>
 				<th></th>
 				<th></th>
 				<th></th>
@@ -14,35 +14,34 @@
 			</tr>
 		</thead>
 	    <tbody>
-		  <% posts.each do |post| %>
+
 		    <tr>
-			  <td>
+			  <td style="width:130px;">
 
 			  <%= link_to user_path(post.user) do %>
 			  <figure class="box">
 			  <%= attachment_image_tag(post.user, :profile_image, size: "100x100", fallback: "default#{post.user.default_image}.png") %>
 			  </figure>
 			  <% end %>
+
               <%= post.user.name %>
 			  </td>
-			  <td style="width:150px;">
+			  <td style="width:200px;">
 			  <small>
 			  <%= link_to post.title, post_path(post), data: {"turbolinks" => false} ,class: "post_#{post.id}" %>
 			  </small>
 			  </td>
-              <td>
+              <td style="width:300px;">
 	           <small>
 		      <%= simple_format post.body %></small>
-		      </td>
-		     
-		       <td>ここにいいねレンダーさせる
 		      </td>
 		       <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
 		      </td>
 		   </tr>
-			 <% end %>
 		</tbody>
 	  </table>
     </table>
+  </div>
+             <% end %>
   </div>
 </div>
