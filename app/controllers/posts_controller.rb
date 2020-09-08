@@ -5,17 +5,17 @@ class PostsController < ApplicationController
     @search = Post.search(params[:q])
     @posts = @search.result
       respond_to do |format|
-        format.html # index.html.erb
+        format.html 
         format.json { render json: @posts }
       end
   end
 
 
   def create
-    @post = Post.new(post_params) # フォームから送られてきたデータ(body)をストロングパラメータを経由して@postに代入
-    @post.user_id = current_user.id# user_idの情報はフォームからはきていないので、deviseのメソッドを使って「ログインしている自分のid」を代入
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
     @post.save
-    @posts = Post.all #postモデルからすべてのインスタンス取得
+    @posts = Post.all
   end
 
   def show
@@ -25,7 +25,6 @@ class PostsController < ApplicationController
     @post = Post.new
     # データを持ったpostのユーザー(@find_postの投稿をしたuser)
     @user = @find_post.user
-    # 新規投稿用の空のインスタンス
     @post_comment = PostComment.new
     # 与えられた条件にマッチするレコードをすべて返す
     # ポストコメントモデルに入っている中でpost_idが一緒のものを全てとってきたい(where=条件に合うデータを複数取得)
