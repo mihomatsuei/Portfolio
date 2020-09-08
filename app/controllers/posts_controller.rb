@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @search = Post.includes(:user).ransack(params[:q])
-    @posts = @search.result
+    @posts = @search.result.page(params[:page]).per(5)
       respond_to do |format|
         format.html 
         format.json { render json: @posts }

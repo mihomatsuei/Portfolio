@@ -38,12 +38,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.page(params[:page]).per(10)
     @users = User.all
     @user = current_user
     @post = Post.new
     @search = User.search(params[:q])
-    @users = @search.result
+    @users = @search.result.page(params[:page]).per(7)
 
     respond_to do |format|
       format.html
