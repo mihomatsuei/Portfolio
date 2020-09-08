@@ -35,9 +35,10 @@
 		  </div>
 		  <div class="col-md-8">
             <div class="nomadBox_deco8">
-            	<%= @find_post.body %>
+            	<%#= @find_post.body %>
 		      <div class="post_<%= @find_post.id %>">
-                <%= render 'detail', find_post: @find_post,post_comments:@post_comments,user:@user %>
+		      	<% p @find_post.do_our_best_by?(current_user) %>
+                <%= render 'detail',exist_do_our_best:@find_post.do_our_best_by?(current_user), do_our_best_count:@do_our_bests_count,find_post: @find_post,user:@user,do_our_best_path:post_do_our_bests_path(@find_post),is_post:true %>
               </div>
 
 	       </div>
@@ -71,8 +72,8 @@
 	          	<th style="width:70px;">
 		        	</th>
 		        	<th>
-		        	<div class="post_comment<%= @post_comment.id %>">
-                    <%= render 'detail', find_post: @find_post,post_comments:@post_comments,user:@post_comment.user %>
+		        	<div class="post_comment_<%= post_comment.id %>">
+                    <%= render 'detail',exist_do_our_best:post_comment.do_our_best_by?(current_user), do_our_best_count:post_comment.do_our_bests.count,find_post: @find_post,user:@user,do_our_best_path:post_comment_do_our_bests_path(post_comment),is_post:false %>
                     </div>
                 </th>
                     <th>

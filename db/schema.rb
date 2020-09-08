@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_121140) do
+ActiveRecord::Schema.define(version: 2020_09_08_113049) do
 
   create_table "do_our_bests", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "post_comment_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -57,10 +58,10 @@ ActiveRecord::Schema.define(version: 2020_09_07_121140) do
     t.datetime "remember_created_at"
     t.string "name"
     t.string "beginner_thing"
-    t.integer "beginner_period"
+    t.string "beginner_period"
     t.string "beginner_level"
     t.string "expert_thing"
-    t.integer "expert_period"
+    t.string "expert_period"
     t.string "expert_level"
     t.text "introduction"
     t.string "profile_image_id"

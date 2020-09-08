@@ -31,7 +31,7 @@ HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
 {
   id: 2,
   name: 'ぷにぷに',
-  email: '1@1',
+  email: '2@2',
   beginner_thing: '英会話',
   beginner_period: '1ヶ月',
   beginner_level: '全くしゃべれません',
@@ -49,7 +49,7 @@ HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
   {
   id: 3,
   name: 'にこにこ',
-  email: '1@1',
+  email: '3@3',
   beginner_thing: '着物',
   beginner_period: 'これから始めようと思ってます',
   beginner_level: '動画をみながら何とか着付けができる',

@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   def index
     @post = Post.new
-    @posts = Post.includes(:user)
-    @search = Post.search(params[:q])
+    @search = Post.includes(:user).ransack(params[:q])
     @posts = @search.result
       respond_to do |format|
         format.html 
@@ -15,19 +14,16 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.save
-    @posts = Post.all
+    @search = Post.includes(:user).ransack(params[:q])
+    @posts = @search.result
   end
 
   def show
-    # ブラウザのurlと同じidのpostのデータが欲しい@find_post=データを持ったpost
     @find_post = Post.find(params[:id])
-    # @post=データを持っていない空のpost(新規投稿用の空のインスタンス)
+    @do_our_bests_count = @find_post.do_our_bests.where(post_comment_id:nil).count
     @post = Post.new
-    # データを持ったpostのユーザー(@find_postの投稿をしたuser)
     @user = @find_post.user
     @post_comment = PostComment.new
-    # 与えられた条件にマッチするレコードをすべて返す
-    # ポストコメントモデルに入っている中でpost_idが一緒のものを全てとってきたい(where=条件に合うデータを複数取得)
     @post_comments = PostComment.where(post_id: @find_post.id)
   end
 

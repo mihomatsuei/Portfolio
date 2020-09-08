@@ -34,11 +34,12 @@ $(document).on('turbolinks:load',function(){
     	console.log(e)
         $(".image-choice").attr('src', url);
         $("#user_default_image").val($(this).attr("data-value"))
-    })
+    });
+    headerHamburger();
 });
 
-$(window).load(function(){
-    var height = window.innerHeight,
+function headerHamburger(){
+  var height = window.innerHeight,
   x= 0, y= height/2,
     curveX = 10,
     curveY = 0,
@@ -46,7 +47,6 @@ $(window).load(function(){
     xitteration = 0,
     yitteration = 0,
     menuExpanded = false;
-    
     blob = $('#blob'),
     blobPath = $('#blob-path'),
 
@@ -54,7 +54,6 @@ $(window).load(function(){
 
     $(this).on('mousemove', function(e){
         x = e.pageX;
-        
         y = e.pageY;
     });
 
@@ -74,7 +73,6 @@ $(window).load(function(){
 
     var hoverZone = 150;
     var expandAmount = 20;
-    
     function svgCurve() {
         if ((curveX > x-1) && (curveX < x+1)) {
             xitteration = 0;
@@ -87,7 +85,7 @@ $(window).load(function(){
                     targetX = 0;
                 } else {
                     targetX = -(((60+expandAmount)/100)*(x-hoverZone));
-                }           
+                }
             }
             xitteration++;
         }
@@ -96,7 +94,7 @@ $(window).load(function(){
             yitteration = 0;
         } else {
             yitteration = 0;
-            yitteration++;  
+            yitteration++;
         }
 
         curveX = easeOutExpo(xitteration, curveX, targetX-curveX, 100);
@@ -112,11 +110,9 @@ $(window).load(function(){
         blob.width(curveX+60);
 
         hamburger.css('transform', 'translate('+curveX+'px, '+curveY+'px)');
-    
     $('h1').css('transform', 'translateY('+curveY+'px)');
         window.requestAnimationFrame(svgCurve);
     }
 
     window.requestAnimationFrame(svgCurve);
-    
-});
+};

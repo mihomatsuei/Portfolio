@@ -1,5 +1,4 @@
-//$(".post_<%= @post.id %>").html("<%= j(render 'posts/detail',  find_post: @post, user: @user, post_comments: @post_comments ) %>");
-var $btn = $(".post_<%= @post.id %> .Heart-Inner-Box-Item-Likes-Icon");
+var $btn = $(".<%= @do_our_best_class %> .Heart-Inner-Box-Item-Likes-Icon");
 if ($btn.hasClass('HeartAnimation')) {
    $btn.removeClass("HeartAnimation");
 } else if($btn.hasClass('exist-heart')){
@@ -7,7 +6,7 @@ if ($btn.hasClass('HeartAnimation')) {
 } else {
     $btn.addClass("HeartAnimation");
 }
-var $link_anchor = $(".post_<%= @post.id %> .Heart-Inner-Box-Item-Likes-Icon a")
-$link_anchor.attr('href',"<%=post_do_our_bests_path(@post) %>");
+var $link_anchor = $(".<%= @do_our_best_class %> .Heart-Inner-Box-Item-Likes-Icon a")
+$link_anchor.attr('href',"<%= @do_our_best_path %>");
 $link_anchor.attr('data-method','post');
-$(".post_<%= @post.id %> .do_our_bests_count").text("<%= @post.do_our_bests.count %>");
+$(".<%= @do_our_best_class %> .do_our_bests_count").text("<%= @do_our_bests_count %>");
