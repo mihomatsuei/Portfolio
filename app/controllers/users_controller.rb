@@ -3,15 +3,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post = Post.new # 新規投稿用の空のインスタンス
-    @posts = @user.posts # @userの投稿した(@userに関連した)投稿 user.rbのhas_many :postsより
+    @post = Post.new
+    @posts = @user.posts
   end
 
   def edit
     @user = User.find(params[:id])
     if @user == current_user
     else
-    redirect_to user_path(current_user.id) #users#show
+    redirect_to user_path(current_user.id)
     end
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user == current_user
     else
-    redirect_to user_path(current_user.id) #users#show
+    redirect_to user_path(current_user.id)
     end
   end
 
@@ -39,7 +39,14 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
-    @post = Post.new # 新規投稿用の空のインスタンス
+    @post = Post.new
+    @search = User.search(params[:q]) # この行を追加
+    @users = @search.result #この行を修正
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
   end
 
   def following

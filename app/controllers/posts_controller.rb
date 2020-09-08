@@ -1,25 +1,20 @@
 class PostsController < ApplicationController
   def index
-    @search = Post.ransack(params[:q])
+    @post = Post.new
+    @posts = Post.includes(:user)
+    @search = Post.search(params[:q])
     @posts = @search.result
-    @posts = Post.all #postモデルからすべてのインスタンス取得
-    @post = Post.new # 新規投稿用の空のインスタンス
-    @user = current_user
-    # @post_comments = PostComment.where(post_id: @post.id)は定義しなくてOK
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @posts }
+      end
   end
 
-  def new
-    @posts = Post.all #postモデルからすべてのインスタンス取得
-    @post = Post.new # 新規投稿用の空のインスタンス
-    @user = current_user
-    # @post_comments = PostComment.where(post_id: @post.id)は定義しなくてOK
-  end
 
   def create
     @post = Post.new(post_params) # フォームから送られてきたデータ(body)をストロングパラメータを経由して@postに代入
     @post.user_id = current_user.id# user_idの情報はフォームからはきていないので、deviseのメソッドを使って「ログインしている自分のid」を代入
     @post.save
-    @user = current_user
     @posts = Post.all #postモデルからすべてのインスタンス取得
   end
 
@@ -39,10 +34,10 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @user = @post.user #@postの投稿をしたuser
+    @user = @post.user
     if @user == current_user
     else
-       redirect_to posts_path #post#indexへ
+       redirect_to posts_path
     end
   end
 
