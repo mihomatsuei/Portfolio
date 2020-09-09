@@ -8,7 +8,6 @@
      		<span class="input-group-btn">
       		<%= search_form_for @search, url: users_path do |f| %>
       		<%= f.search_field :name_or_beginner_thing_or_beginner_level_or_expert_thing_or_expert_level_cont ,class: "form-control" ,placeholder: "探してみてね"%>
-          
       		<%= f.submit '検索' , class: 'btn btn-default'%>
       		<% end %>
       	  </span>
