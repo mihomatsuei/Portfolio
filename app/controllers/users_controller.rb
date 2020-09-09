@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @user = current_user
     @post = Post.new
     @search = User.search(params[:q])
-    @users = @search.result.page(params[:page]).per(7)
+    @users = @search.result.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html
@@ -52,12 +52,12 @@ class UsersController < ApplicationController
 
   def following
      @user = User.find(params[:id])
-     @users = @user.following_user
+     @users = @user.following_user.page(params[:page]).per(5)
   end
 
   def followed
      @user = User.find(params[:id])
-     @users = @user.follower_user
+     @users = @user.follower_user.page(params[:page]).per(5)
   end
 
 

@@ -1,2 +1,37 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+
+ <div class="container"> 
+　　<div class="row">
+	  <div class="col-md-4"></div>
+	  <div class="col-md-4">
+		<h2>トピック編集</h2>
+	   </div>
+	   <div class="col-md-2"></div>
+	   <div class="col-md-2">
+	     <div class="button">
+           <%= link_to '一覧へ', posts_path %>
+         </div>
+         <div class="button">
+        <%= link_to "もどる", post_path(@post), class: "post_#{@post.id}" %>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+	  <div class="col-md-4"></div>
+	  <div class="col-md-5">
+　　　　<%= form_for(@post) do |f| %>
+	　　　<div class="field row">
+		<%= f.text_field :title,class: "form-control" %>
+	　　　</div>
+
+		　　<div class="field row">
+			<%= f.text_area :body, rows:'10', class: "form-control",placeholder: "コメントをこちらに" %>
+		　　</div>
+
+		　　<div class="actions row">
+			<%= f.submit "送信", class: "btn btn-outline-secondary " %>
+		　　　　　<% end %>
+		　　　　</div>
+	　　　<div class="col-md-3"></div>
+　　　  </div>
+　　　</div>
+   </div>
