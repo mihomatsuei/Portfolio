@@ -223,7 +223,8 @@ text-decoration: none;
 
 .Heart-Inner-Box-Item-Likes-Icon {
   position: absolute;
-  left: -35px;
+  left: -82px;
+  top: -35px;
   background: image-url("web_heart_animation.png");
   background-position: left;
   background-size: 2900%;
@@ -237,7 +238,8 @@ text-decoration: none;
 }
 .Heart-Inner-Box-Item-Likes-Icon.exist-heart {
   position: absolute;
-  left: -35px;
+  left: -82px;
+  top: -35px;
   background: image-url("web_heart_animation_reserve.png");
   background-position: left;
   background-size: 2900%;
@@ -245,7 +247,7 @@ text-decoration: none;
   width: 70px;
   height: 70px;
   z-index: 1;
-  
+   
 }
 
 .HeartAnimation {
@@ -259,7 +261,7 @@ text-decoration: none;
   animation-iteration-count: 1;
   -webkit-animation-timing-function: steps(28);
   animation-timing-function: steps(28);
- 
+  
 }
 
 .Heart-Inner-Box-Item-Likes-Icon a{
@@ -284,8 +286,7 @@ position: absolute;
 .heart_count_css2{
   text-align:right;
   margin-top:30px;
-
-
+  
 }
 
 

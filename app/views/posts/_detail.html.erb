@@ -3,7 +3,10 @@
 <table class="table-borderless">
   <tbody>
       <tr>
-      	<th style="width:340px;"></th>
+      	<th style="width:375px;"></th>
+      	<th>頑張ろう</th>
+   		<th style="width:60px;">
+   		</th>
 	    <th >
 	      <div class="heart">
           <% if exist_do_our_best %>
@@ -27,27 +30,23 @@
 				  <%= do_our_best_count %>
 				  </span>
 			    </div>
-              </div>
-   		  <% end %>
-   		</div>
-   		  </th>
-   		  <th>ありがとう！頑張ろう!
-   		 </th>
+            </div>
+   		   <% end %>
+   		  </div>
+   		</th>
 
-		
 		 <th style="width:5px;">
 	     </th>
-        <th>
-		<% if user == current_user && is_post %>
-		  <div class='btn-sticky2'>
-		<%= link_to "編集", edit_post_path(find_post) %>
-	      </div>
-	      <div class='btn-sticky'>
-		<%= link_to "削除", post_path(find_post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
-		  </div>
-		<% end %>
-
-	    </th>
-	　 </tr>
-　　</tbody>
+         <th>
+		   <% if user == current_user && is_post %>
+		     <div class='btn-sticky2'>
+		   <%= link_to "編集", edit_post_path(find_post) %>
+	         </div>
+	         <div class='btn-sticky'>
+		   <%= link_to "削除", post_path(find_post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+		    </div>
+		   <% end %>
+         </th>
+	  </tr>
+   </tbody>
 </table>
