@@ -3,27 +3,38 @@
 <table class="table-borderless">
   <tbody>
       <tr>
-      	<th style="width:305px;"></th>
-	    <th>
+      	<th style="width:340px;"></th>
+	    <th >
+	      <div class="heart">
           <% if exist_do_our_best %>
-          <div class="Heart-Inner-Box-Item-Likes-Icon exist-heart">
-			<%= link_to "", do_our_best_path, method: :delete, remote: true %>
-			<span class="do_our_bests_count">
-			  <%= do_our_best_count %>
-			</span>
-          </div>
-		  <% else %>
-          <div class="Heart-Inner-Box-Item-Likes-Icon">
-		    <%= link_to "",do_our_best_path, method: :post, remote: true %>
-			<span class="do_our_bests_count">
-			  <%= do_our_best_count %>
-			</span>
-          </div>
+		      <div class="Heart-Inner-Box-Item-Likes-Icon exist-heart">
+		        <div class="heart_count_css">
+				  <%= link_to "", do_our_best_path, method: :delete, remote: true %>
+			    </div>
+				 <div class="heart_count_css2">
+				   <span class="do_our_bests_count">
+				   <%= do_our_best_count %>
+				   </span>
+			    </div>
+			   </div>
+			  <% else %>
+		      <div class="Heart-Inner-Box-Item-Likes-Icon">
+			    <div class="heart_count_css">
+			    <%= link_to "",do_our_best_path, method: :post, remote: true %>
+			   </div>
+		        <div class="heart_count_css2">
+				  <span class="do_our_bests_count">
+				  <%= do_our_best_count %>
+				  </span>
+			    </div>
+              </div>
    		  <% end %>
-   		  <th>頑張ろう!
+   		</div>
+   		  </th>
+   		  <th>ありがとう！頑張ろう!
    		 </th>
 
-		</th>
+		
 		 <th style="width:5px;">
 	     </th>
         <th>

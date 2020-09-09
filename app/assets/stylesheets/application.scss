@@ -211,12 +211,18 @@ text-decoration: none;
      background-position: right;
    }
  }
+ .heart{
+  position: relative;
+
+ }
 
 .Heart-Inner-Box-Item-Likes {
   position: relative;
+
 }
+
 .Heart-Inner-Box-Item-Likes-Icon {
-  position: relative;
+  position: absolute;
   left: -35px;
   background: image-url("web_heart_animation.png");
   background-position: left;
@@ -225,10 +231,12 @@ text-decoration: none;
   width: 70px;
   height: 70px;
   z-index: 1;
-  text-align:center;
+  
+
+
 }
 .Heart-Inner-Box-Item-Likes-Icon.exist-heart {
-  position: relative;
+  position: absolute;
   left: -35px;
   background: image-url("web_heart_animation_reserve.png");
   background-position: left;
@@ -237,6 +245,7 @@ text-decoration: none;
   width: 70px;
   height: 70px;
   z-index: 1;
+  
 }
 
 .HeartAnimation {
@@ -250,6 +259,7 @@ text-decoration: none;
   animation-iteration-count: 1;
   -webkit-animation-timing-function: steps(28);
   animation-timing-function: steps(28);
+ 
 }
 
 .Heart-Inner-Box-Item-Likes-Icon a{
@@ -258,11 +268,26 @@ position: absolute;
   height: 100%;
   text-indent:-999px;
   z-index: 2;
+
 }
 
 .do_our_bests_count{
   z-index:0;
+
 }
+
+.heart_count_css{
+  text-align:center;
+
+}
+
+.heart_count_css2{
+  text-align:right;
+  margin-top:30px;
+
+
+}
+
 
 .item_image_btn{
   display: none;
