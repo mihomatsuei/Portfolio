@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users,only: [:show,:index,:edit,:update]
    get 'users/:id/choice' => 'users#choice', as: 'user_choice'
   resources :post_comments, only: [:create, :destroy] do
-  resource :do_our_bests, only: [:create, :destroy]
+   resource :do_our_bests, only: [:create, :destroy]
+   resource :thank_yous, only: [:create, :destroy]
   end
 end

@@ -39,8 +39,6 @@
 		      	<% p @find_post.do_our_best_by?(current_user) %>
                 <%= render 'detail',exist_do_our_best:@find_post.do_our_best_by?(current_user), do_our_best_count:@do_our_bests_count,find_post: @find_post,user:@user,do_our_best_path:post_do_our_bests_path(@find_post),is_post:true %>
               </div>
-
-	       </div>
 		 </div>
     </div>
 
@@ -76,6 +74,7 @@
                   </div>
                 </th>
                 <th style="width:5px;">
+                 
 	        	</th>
                 <th >
 	          	  <div class='btn-sticky'>

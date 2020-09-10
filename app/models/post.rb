@@ -5,7 +5,6 @@ class Post < ApplicationRecord
 	has_many :thank_yous, dependent: :destroy
 	has_many :do_our_bests, dependent: :destroy
 
-	#「投稿をユーザーが頑張ろうね,ありがとうしているかどうか」を判定するメソッド
 	def thank_you_by?(user)
       thank_yous.where(user_id: user.id).exists?
     end

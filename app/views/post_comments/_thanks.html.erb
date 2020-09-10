@@ -1,0 +1,18 @@
+<!-- ありがとう機能 -->
+<th style="width:90px;">
+ <% if @post_comment.thank_you_by?(current_user) %>
+	<%= link_to post_comment_thank_yous_path(@post_comment), method: :delete, remote: true do %>
+	ありがとう!
+
+	<i class="fas fa-laugh-beam"></i>
+	   <%= comment.thank_yous.count %>
+  <% end %>
+  <% else %>
+    <%= link_to post_comment_thank_yous_path(@post_comment), method: :post, remote: true do %>
+    ありがとう!
+	 <i class="far fa-laugh-beam"></i>
+	   <%= comment.thank_yous.count %>
+  <% end %>
+  <% end %>
+</th>
+<th>
