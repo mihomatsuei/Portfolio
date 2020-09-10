@@ -60,13 +60,13 @@ HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
   expert_level: 'パーソナルトレーニングジムに半年通っている',
   introduction: 'はじめまして！着物を一人で着られるようになって、
   カフェや美術館巡りしたいな〜と思ってます。筋トレと糖質制限で７キロ痩せました。
-  筋トレ、オススメのプロテインなどなんでも聞いてください。よろしくお願いします！
-  ',
+  筋トレ、オススメのプロテインなどなんでも聞いてください。よろしくお願いします！',
   password: '111111',
   password_confirmation: '111111',
   image: open("./assets/images/default6.png")
   },
 
+　{
   id: 4,
   name: 'ふわふわ',
   email: '4@4',
@@ -78,13 +78,13 @@ HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
   expert_level: '呉服屋で５年ほど働いてました',
   introduction: 'はじめまして！今の仕事を退職して、プログラミングを勉強して
   転職しようと考えています。趣味は着物で、毎日着物を着ています。
-  以前呉服屋で働いていました。お着物のことなら相談乗れると思います。よろしくお願いいたします。
-  ',
+  以前呉服屋で働いていました。お着物のことなら相談乗れると思います。よろしくお願いいたします。',
   password: '111111',
   password_confirmation: '111111',
-  image: open("./assets/images/default5.png")
+  image: open("./assets/images/default4.png")
   },
 
+　{
   id: 5,
   name: 'ぷるぷる',
   email: '5@5',
@@ -100,8 +100,7 @@ HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
   password: '111111',
   password_confirmation: '111111',
   image: open("./assets/images/default5.png")
-  },
-
+  }
   ]
  )
 
