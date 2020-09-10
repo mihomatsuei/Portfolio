@@ -66,15 +66,15 @@
           <tbody>
           	<%= post_comment.comment %>
           	<tr>
-	          	<th style="width:70px;">
+	          	<th style="width:10px;">
 	        	</th>
 	        	<th>
 	        	  <div class="post_comment_<%= post_comment.id %>">
                    <%= render 'detail',exist_do_our_best:post_comment.do_our_best_by?(current_user), do_our_best_count:post_comment.do_our_bests.count,find_post: @find_post,user:@user,do_our_best_path:post_comment_do_our_bests_path(post_comment),is_post:false %>
                   </div>
                 </th>
-                <th style="width:5px;">
-                 
+                <th style="width:90px;">
+               <p>  ありがとう 1<p>
 	        	</th>
                 <th >
 	          	  <div class='btn-sticky'>
