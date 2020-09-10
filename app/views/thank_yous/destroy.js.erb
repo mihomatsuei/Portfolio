@@ -1,1 +1,1 @@
-$(".post_comment_<%= @post_comment.id %>").html("<%= j(render 'post_comment/thanks',  find_post: @post, user: @user, post_comments: @post_comments ) %>");
+$("#post_comment_<%= @post_comment.id %>").html("<%= j(render 'post_comments/thanks',  find_post: @post, user: @user, post_comment: @post_comment ) %>");

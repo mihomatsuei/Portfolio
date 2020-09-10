@@ -3,7 +3,7 @@
 <table class="table-borderless">
   <tbody>
       <tr>
-      	<th style="width:370px;"></th>
+      	<th style="width:360px;"></th>
       	<th>頑張ろう</th>
    		<th style="width:60px;">
    		</th>
@@ -14,13 +14,13 @@
 		        <div class="heart_count_css">
 				  <%= link_to "", do_our_best_path, method: :delete, remote: true %>
 			    </div>
-				 <div class="heart_count_css2">
+				<div class="heart_count_css2">
 				   <span class="do_our_bests_count">
 				   <%= do_our_best_count %>
 				   </span>
 			    </div>
 			   </div>
-			  <% else %>
+			     <% else %>
 		      <div class="Heart-Inner-Box-Item-Likes-Icon">
 			    <div class="heart_count_css">
 			    <%= link_to "",do_our_best_path, method: :post, remote: true %>
@@ -30,12 +30,11 @@
 				  <%= do_our_best_count %>
 				  </span>
 			    </div>
-            </div>
-   		   <% end %>
+              </div>
+   		          <% end %>
    		  </div>
    		</th>
 
-		 
          <th>
 		   <% if user == current_user && is_post %>
 		     <div class='btn-sticky2'>

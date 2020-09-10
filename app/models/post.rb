@@ -2,7 +2,6 @@ class Post < ApplicationRecord
 
 	belongs_to :user
 	has_many :post_comments, dependent: :destroy
-	has_many :thank_yous, dependent: :destroy
 	has_many :do_our_bests, dependent: :destroy
 
 	def thank_you_by?(user)

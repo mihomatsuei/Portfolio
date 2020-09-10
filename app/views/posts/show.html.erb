@@ -35,12 +35,14 @@
 		  <div class="col-md-8 ">
             <div class="nomadBox_deco8">
             	<%= @find_post.body %>
+            	<!-- ありがとう機能呼び出し -->
 		      <div class="post_<%= @find_post.id %>">
 		      	<% p @find_post.do_our_best_by?(current_user) %>
                 <%= render 'detail',exist_do_our_best:@find_post.do_our_best_by?(current_user), do_our_best_count:@do_our_bests_count,find_post: @find_post,user:@user,do_our_best_path:post_do_our_bests_path(@find_post),is_post:true %>
               </div>
-		 </div>
-    </div>
+		    </div>
+          </div>
+      </div>
 
 
 <!-- コメント表示欄作成 -->
@@ -66,17 +68,18 @@
           <tbody>
           	<%= post_comment.comment %>
           	<tr>
-	          	<th style="width:10px;">
-	        	</th>
 	        	<th>
+	        		<!-- 頑張ろう機能 -->
 	        	  <div class="post_comment_<%= post_comment.id %>">
                    <%= render 'detail',exist_do_our_best:post_comment.do_our_best_by?(current_user), do_our_best_count:post_comment.do_our_bests.count,find_post: @find_post,user:@user,do_our_best_path:post_comment_do_our_bests_path(post_comment),is_post:false %>
                   </div>
                 </th>
-                <th style="width:90px;">
-               <p>  ありがとう 1<p>
+                <!-- ありがとう機能 -->
+                <th  id="post_comment_<%= post_comment.id %>" style="width:90px;">
+	              	<%= render 'post_comments/thanks',comment: post_comment,find_post: @find_post, user: @user, post_comment: post_comment%>
 	        	</th>
-                <th >
+
+                <th style="width:65px;">
 	          	  <div class='btn-sticky'>
 	                <% if post_comment.user == current_user%>
 	                <%= link_to "削除", post_comment_path(post_comment), method: :delete %>
