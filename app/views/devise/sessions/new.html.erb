@@ -1,30 +1,30 @@
 <div class="index-container" style="width:40%; margin: 50px auto;">
  <div class="row">
-  <h2>ユーザーログイン</h2>
+  <h2>ユーザーログイン</h2> <br>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-   <p>お名前（ニックネーム）</p>
-   <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control offset-6 col-6" %>
- </div>
- <br>
- <div class="field">
-  <p>パスワード(6文字以上)</p>
-  <%= f.password_field :password, autocomplete: "new-password", class: "form-control offset-6 col-6" %></div>
-  <br>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+     <div class="field">
+    <p>お名前（ニックネーム）</p>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control offset-6 col-6" %>
+     </div>
+     <br>
+     <div class="field">
+       <p>パスワード(6文字以上)</p>
+       <%= f.password_field :password, autocomplete: "new-password", class: "form-control offset-6 col-6" %></div>
+       <br>
 
-   <div>
+       <div class="field">
         <%= link_to "=>パスワードを忘れた方はこちら", new_password_path(resource_name) %>
-      </div>
-  <br>
-  <div class="actions">
-   <%= f.submit "ログイン", class: 'btn btn-info' %>
- </div>
- <% end %>
- <div class="space">
-  <br>
-  <p>登録がお済みでない方は
-  <%= link_to "こちら", new_user_registration_path  %>から新規登録をお願いします</p>
-</div>
-</div>
+          </div>
+       <br>
+      <div class="actions">
+        <div style = "text-align: center">
+         <%= f.submit "ログイン", class: 'btn btn-info' %>
+         <% end %>
+        <br><br>
+         <p>登録がお済みでない方は
+         <%= link_to "こちら", new_user_registration_path  %>から新規登録をお願いします</p>
+       </div>
+     </div>
+   </div>
 </div>
