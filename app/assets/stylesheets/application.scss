@@ -34,6 +34,10 @@ html {
   font-weight: 400;
 }
 
+.logo-image{
+   border-radius: 20px;
+   border: 3px #5f3830 solid;
+}
 
 body {
   background-color: #FAF7F2;
@@ -233,9 +237,6 @@ text-decoration: none;
   width: 60px;
   height: 60px;
   z-index: 1;
-  
-
-
 }
 .Heart-Inner-Box-Item-Likes-Icon.exist-heart {
   position: absolute;
@@ -248,7 +249,6 @@ text-decoration: none;
   width: 60px;
   height: 60px;
   z-index: 1;
-   
 }
 
 .HeartAnimation {
