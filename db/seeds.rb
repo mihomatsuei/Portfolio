@@ -18,26 +18,26 @@ User.create!(
   expert_period: '2年',
   expert_level: 'アメリカに１年留学行ってました。日常会話を話せる',
   introduction: 'はじめまして！今年の６月からプログラミングを勉強しはじめました。
-HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
-プログラミング初心者の方と励まし合いたいと思って登録しました。
-よろしくお願いいたします！
-大学中にアメリカのニューヨークに１年留学に行っていたので、日常会話程度の
-英会話ならできます。現在オンライン英会話を毎日行ってます。
-英語の質問気軽にください〜！',
+  HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
+  プログラミング初心者の方と励まし合いたいと思って登録しました。
+  よろしくお願いいたします！
+  大学中にアメリカのニューヨークに１年留学に行っていたので、日常会話程度の
+  英会話ならできます。現在オンライン英会話を毎日行ってます。
+  英語の質問気軽にください〜！',
   password: '111111',
   password_confirmation: '111111',
-  image: open("./assets/images/default1.png")
+  profile_image: open("./app/assets/images/default1.png")
   },
 
 {
   id: 2,
-  name: 'ぷにぷに',
+  name: 'すやすや',
   email: '2@2',
   beginner_thing: '英会話',
   beginner_period: '1ヶ月',
   beginner_level: '全くしゃべれません',
   expert_thing: '睡眠',
-  expert_period: '20年',
+  expert_period: '２０年',
   expert_level: 'その人に合った睡眠グッズを紹介できる',
   introduction: 'こんにちは！全く英語が喋れす、これからオンライン英会話に挑戦しよう
   と思っています。同じような方とお話できたらと思い登録いたしました。
@@ -45,7 +45,7 @@ HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
   よろしくお願いします！',
   password: '111111',
   password_confirmation: '111111',
-  image: open("./assets/images/default2.png")
+  profile_image: open("./app/assets/images/default2.png")
   },
 
   {
@@ -63,12 +63,12 @@ HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
   筋トレ、オススメのプロテインなどなんでも聞いてください。よろしくお願いします！',
   password: '111111',
   password_confirmation: '111111',
-  image: open("./assets/images/default6.png")
+  profile_image: open("./app/assets/images/default6.png")
   },
 
   {
   id: 4,
-  name: 'ふわふわ',
+  name: 'ぷにぷに',
   email: '4@4',
   beginner_thing: 'プログラミング',
   beginner_period: 'これから始めようと思ってます',
@@ -81,7 +81,7 @@ HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
   以前呉服屋で働いていました。お着物のことなら相談乗れると思います。よろしくお願いいたします。',
   password: '111111',
   password_confirmation: '111111',
-  image: open("./assets/images/default4.png")
+  profile_image: open("./app/assets/images/default4.png")
   },
 
   {
@@ -99,10 +99,67 @@ HTML&CSS、Ruby、Ruby on rails、Java Scriptを勉強中です。
   同じような方とお話できたらと思います。よろしくお願いします！',
   password: '111111',
   password_confirmation: '111111',
-  image: open("./assets/images/default5.png")
+  profile_image: open("./app/assets/images/default3.png")
+  },
+
+  {
+  id: 6,
+  name: 'きらきら',
+  email: '6@6',
+  beginner_thing: '料理',
+  beginner_period: '１ヶ月',
+  beginner_level: 'クックパッドで調べて作れる',
+  expert_thing: 'プログラミング',
+  expert_period: '５年',
+  expert_level: 'フリーランスエンジニアしてます',
+  introduction: 'こんにちは！不規則な生活で健康を害しそうなので、健康的な食事を自炊できたらと思っています。
+  料理教室に通うか悩んでます。
+  同じような方とお話できたらと思います。よろしくお願いします！',
+  password: '111111',
+  password_confirmation: '111111',
+  profile_image: open("./app/assets/images/default5.png")
+  },
+
+  {
+  id: 7,
+  name: 'ふわふわ',
+  email: '7@7',
+  beginner_thing: '社会人',
+  beginner_period: 'これから',
+  beginner_level: '未知の領域です',
+  expert_thing: 'ダンス',
+  expert_period: '３年',
+  expert_level: '大学でダンスサークルに入ってました',
+  introduction: 'こんにちは！春から新社会人です。
+  右も左も分からないので先輩方からアドバイスいただきたいと思っています。
+  よろしくお願いします！',
+  password: '111111',
+  password_confirmation: '111111',
+  profile_image: open("./app/assets/images/default7.png")
+  },
+
+  {
+  id: 8,
+  name: 'こけこ',
+  email: '8@8',
+  beginner_thing: '読書',
+  beginner_period: 'これから始めようと思ってます',
+  beginner_level: '全く読書してきませんでした',
+  expert_thing: 'ゲーム',
+  expert_period: '１０年以上',
+  expert_level: 'FPS系なんでも得意です',
+  introduction: 'こんにちは！今まで全く本を読んでこなかったので、毎月２冊ずつ本を読んで
+  twitterで発信したいと考えてます！おすすめの本があったら教えてください。
+  ゲーム全般得意なのでコツとか練習方法等教えられると思います！
+  同じような方と励まし合いたいです。よろしくお願いします！',
+  password: '111111',
+  password_confirmation: '111111',
+  profile_image: open("./app/assets/images/default8.png")
   }
   ]
  )
+
+
 
 Post.create!(
  [
@@ -125,7 +182,8 @@ Post.create!(
   user_id: 5,
   title: "ダイエットくじけそうです・・・。",
   body:"こんにちは！ダイエットを始めようと思い、ネットやyoutubeで糖質制限と
-  筋トレを勉強して日々頑張っています。なかなか成果が出ず、くじけそうです・・・。"
+  筋トレを勉強して日々頑張っています。なかなか成果が出ず、くじけそうです・・・。
+  同じようにダイエット頑張っている方いませんか？"
   },
   {
   id: 4,
@@ -147,11 +205,17 @@ Post.create!(
   リサイクルショップで金銀糸が入った夏帯（おそらく絽で色は白）を見つけたんですが、
   これだと格が違いすぎますか・・・？
   竺仙のHPでは博多紗八寸献上帯（白）がおすすめされていたのですが値段的に優しくなくて・・・"
+  },
+  {
+  id: 6,
+  user_id: 8,
+  title: "全くやる気が出ません助けて",
+  body:"はじめまして！毎月２冊ずつ本を読んでtwitterで発信したいと思ってたのに今月全くやる気が出ません！助けてください！！"
   }
  ]
 )
 
-PostComent.create!(
+PostComment.create!(
  [
   {
   id: 1,
@@ -162,14 +226,14 @@ PostComent.create!(
   },
   {
   id: 2,
-  user_id: 2,
+  user_id: 1,
   post_id: 1,
   comment: "こんにちは！仲間ですね！Progateを一通りやってrailsチュートリアルを
   進めています！"
   },
   {
   id: 3,
-  user_id: 2,
+  user_id: 1,
   post_id: 2,
   comment: "くまオンライン英会話を毎日使っている者です。おすすめです！
   テキストがしっかりしているので楽しいですよ。中学レベルの単語がわかればついていけると
@@ -179,7 +243,7 @@ PostComent.create!(
   id: 4,
   user_id: 3,
   post_id: 3,
-  comment: "こんにちは！糖質制限辛いですよね・・・！ファイトです！"
+  comment: "こんにちは！糖質制限本当に辛いですよね・・・！私も何度もくじけそうになりました。継続すれば必ず報われますよ！ファイトです！"
   },
   {
   id: 5,
@@ -197,6 +261,24 @@ PostComent.create!(
   あとは、私だったら絹紅梅には麻帯に墨絵で秋の七草（季節の先取り）が描かれているものを合わせたいと思います！
   ただ麻帯は一般的に８月までとされているので、汎用性を求めるなら博多献上の平織り（白か茶が何にでも合いますよ！）
   がおすすめです！"
-  }
+  },
+  {
+  id: 6,
+  user_id: 3,
+  post_id: 6,
+  comment: "やる気が湧き出てくる魔法をかけました！一緒に頑張りましょう！"
+  },
+  {
+  id: 7,
+  user_id: 5,
+  post_id: 1,
+  comment: "お気持ち大変よくわかります。辛いのは最初だけですよ！頑張ってください！"
+  },
+  {
+  id: 8,
+  user_id: 6,
+  post_id: 4,
+  comment: "こんにちは！フリーランスエンジニアしてます。最初の言語は好きなものでいいと思いますよ！"
+  },
  ]
 )
